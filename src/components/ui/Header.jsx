@@ -7,7 +7,7 @@ function Header() {
   const navItemsSx = [
     {
       label: "Contattami",
-      href: "", // Rotta futura per la pagina contatti
+      href: "/contact",
       type: "link",
     },
     {

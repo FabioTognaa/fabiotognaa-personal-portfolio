@@ -4,7 +4,7 @@ import NavButton from "./NavButton";
 
 function PersonalCard() {
   return (
-    <div className="hidden md:flex max-w-sm flex-1 flex-col justify-center rounded-lg border border-blue-300 p-3 text-center transition-all duration-200 ease-in-out hover:shadow-xl/20">
+    <div className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center rounded-lg border border-blue-300 p-4 text-center transition-all duration-200 ease-in-out hover:shadow-xl/20 sm:max-w-md md:mx-0">
       <div className="mt-3 flex justify-center">
         <img className="h-auto w-50" src={meAcquerelli} alt="foto me stesso" />
       </div>

@@ -5,7 +5,7 @@ function AboutMeSection() {
   return (
     <div id="about" className="m-0 scroll-mt-28 p-0">
       <SectionTitle label="About Me" />
-      <section className="m-16 mt-16 mb-24 flex h-4/5 gap-10 md:mr-36">
+      <section className="mt-12 mb-20 px-4 flex flex-col gap-8 md:mx-16 md:mt-16 md:mb-24 md:flex-row md:gap-10 lg:mr-36">
         <PersonalCard />
         <PersonalDescription />
       </section>

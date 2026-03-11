@@ -21,10 +21,10 @@ function ProjectsSection() {
   ];
 
   return (
-    <div id="projects" className="mt-30 scroll-mt-28">
+    <div id="projects" className="mt-16 mb-20 scroll-mt-28 px-4 md:mt-24 md:px-16">
       <SectionTitle label="Projects" />
       <section className="mt-10">
-        <div className="flex flex-col items-center justify-around gap-5 md:flex-row">
+        <div className="flex flex-col items-center justify-around gap-6 md:flex-row md:gap-5">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

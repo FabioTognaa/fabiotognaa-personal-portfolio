@@ -50,7 +50,7 @@ function SkillSection() {
       id: 4,
       title: "Version Control & API",
       description:
-        "Competenza nell'uso di Git per il versionamento, conoscenza di Python collegamenti API tra applicazioni.",
+        "Competenza nell'uso di Git per il versionamento e conoscenza di Python per i collegamenti API tra applicazioni.",
       icons: [
         { src: gitIcon, alt: "Git" },
         { src: pythonIcon, alt: "Python" },
@@ -59,12 +59,12 @@ function SkillSection() {
   ];
   return (
     <div id="skills" className="scroll-mt-28">
-      <SectionTitle label="Skills" class />
-      <section className="mx:8 mt-12 mb-20 md:mx-16 md:mt-0">
-        <h1 className="mt-20 mb-20 hidden text-center text-xl font-light md:block md:text-3xl">
+      <SectionTitle label="Skills" />
+      <section className="mt-10 mb-16 px-4 md:mx-16 md:mt-0 md:mb-20">
+        <h1 className="mt-10 mb-10 text-center text-lg font-light md:mt-20 md:mb-20 md:text-3xl">
           Ottime competenze in molti linguaggi di programmazione.
         </h1>
-        <div className="grid grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-2">
           {skillsData.map((skill) => (
             <SkillCard
               key={skill.id}

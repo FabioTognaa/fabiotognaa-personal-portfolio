@@ -1,23 +1,13 @@
-import { useState } from "react";
-import HomeSection from "./sections/HomeSection";
-import AboutMeSection from "./sections/AboutMeSection";
-import SkillSection from "./sections/SkillSection";
-import StudySection from "./sections/StudySection";
-import ContactSection from "./sections/ContactSection";
-import ProjectsSection from "./sections/ProjectsSection";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
-    <>
-      <HomeSection />
-      <main>
-        <AboutMeSection />
-        <StudySection />
-        <SkillSection />
-        <ProjectsSection />
-      </main>
-      <ContactSection />
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/contact" element={<ContactPage />} />
+    </Routes>
   );
 }
 
