@@ -53,7 +53,7 @@ function ContactPage() {
           </h1>
           <a
             href="/"
-            className="rounded-full border border-blue-300 px-4 py-2 text-sm font-semibold text-[#0a2342] transition hover:bg-blue-300 hover:text-white"
+            className="rounded-full border border-blue-300 px-4 py-2 text-sm font-semibold text-[#0a2342] transition hover:bg-blue-300 hover:text-whit transition-all duration-150 hover:-translate-y-1"
           >
             Torna alla home
           </a>
@@ -68,7 +68,7 @@ function ContactPage() {
               value={values.name}
               onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
               type="text"
-              className="w-full rounded-lg border border-blue-300 bg-transparent p-2.5 text-sm outline-none ring-blue-400 focus:ring"
+              className="w-full rounded-lg border border-blue-300 bg-transparent p-2.5 text-sm outline-none ring-blue-400 focus:ring transition-all duration-150 focus:mt-1.5"
               placeholder="Il tuo nome"
               required
               autoComplete="name"
@@ -85,7 +85,7 @@ function ContactPage() {
                 setValues((v) => ({ ...v, email: e.target.value }))
               }
               type="email"
-              className="w-full rounded-lg border border-blue-300 bg-transparent p-2.5 text-sm outline-none ring-blue-400 focus:ring"
+              className="w-full rounded-lg border border-blue-300 bg-transparent p-2.5 text-sm outline-none ring-blue-400 focus:ring transition-all duration-150 focus:mt-1.5"
               placeholder="nome@email.com"
               required
               autoComplete="email"
@@ -102,7 +102,7 @@ function ContactPage() {
                 setValues((v) => ({ ...v, message: e.target.value }))
               }
               rows={6}
-              className="w-full resize-none rounded-lg border border-blue-300 bg-transparent p-2.5 text-sm outline-none ring-blue-400 focus:ring"
+              className="w-full resize-none rounded-lg border border-blue-300 bg-transparent p-2.5 text-sm outline-none ring-blue-400 focus:ring transition-all duration-150 focus:mt-1.5"
               placeholder="Scrivi qui..."
               required
             />

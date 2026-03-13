@@ -2,7 +2,7 @@ function SchoolCard({ school, title, date, descr }) {
   //* CARD PER LA SCUOLA DELLA SEZIONE PERCORSO STUDI
 
   return (
-    <div className="mb-12 flex flex-1 flex-col items-start gap-4 rounded-lg bg-transparent p-4 transition-all duration-200 ease-in-out hover:shadow-xl/20 md:mb-0 md:flex-row md:gap-10 md:p-6">
+    <div className="mb-12 flex flex-1 flex-col items-start gap-0 rounded-lg bg-transparent p-4 transition-all duration-200 ease-in-out hover:shadow-xl/20 hover:-translate-y-1 md:mb-0 md:flex-row md:gap-10 md:p-6">
       <img
         src={school}
         alt="school logo"

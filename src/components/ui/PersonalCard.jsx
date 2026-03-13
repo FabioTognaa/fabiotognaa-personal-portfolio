@@ -2,7 +2,7 @@
 
 function PersonalCard() {
   return (
-    <div className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center rounded-lg border border-blue-300 p-4 text-center transition-all duration-200 ease-in-out hover:shadow-xl/20 sm:max-w-md md:mx-0">
+    <div className="mx-auto flex w-full max-w-sm hover:-translate-y-1 flex-1 flex-col justify-center rounded-lg border border-blue-300 p-4 text-center transition-all duration-200 ease-in-out hover:shadow-xl/20 sm:max-w-md md:mx-0">
       <div className="mt-3 flex flex-col items-center gap-2">
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-sky-400 text-xl font-semibold text-white shadow-md md:h-20 md:w-20 md:text-2xl">
           FT
