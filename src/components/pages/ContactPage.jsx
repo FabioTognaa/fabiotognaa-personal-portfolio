@@ -3,9 +3,10 @@ import { supabase } from "../../lib/supabaseClient";
 
 function ContactPage() {
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
-  const [errorMsg, setErrorMsg] = useState("");
-  const [values, setValues] = useState({ name: "", email: "", message: "" });
+  const [errorMsg, setErrorMsg] = useState(""); //var per messaggio di errore 
+  const [values, setValues] = useState({ name: "", email: "", message: "" }); //stato dei valori nel form
 
+  //calcola se il form è pronto per essere inviato: tutti i campi devono essere non vuoti e non deve essere già in corso un invio
   const canSubmit = useMemo(() => {
     const nameOk = values.name.trim().length > 0;
     const emailOk = values.email.trim().length > 0;
@@ -13,11 +14,13 @@ function ContactPage() {
     return nameOk && emailOk && msgOk && status !== "sending";
   }, [status, values]);
 
+  //invio del form, gestisce comunicazione con SUpabase
   async function onSubmit(e) {
     e.preventDefault();
     setStatus("sending");
     setErrorMsg("");
 
+    //se le var di ambiente non sono configurate
     if (!supabase) {
       setStatus("error");
       setErrorMsg(
@@ -26,20 +29,24 @@ function ContactPage() {
       return;
     }
 
+    //prepara i dati da inviare
     const payload = {
       name: values.name.trim(),
       email: values.email.trim(),
       message: values.message.trim(),
     };
 
+    //post dei dati su supabase
     const { error } = await supabase.from("contact_messages").insert([payload]);
 
+    //se l'inserimento fallisce, mostra messaggio di errore
     if (error) {
       setStatus("error");
       setErrorMsg(error.message || "Errore durante l'invio.");
       return;
     }
 
+    //status = success e reset dei valori del form
     setStatus("success");
     setValues({ name: "", email: "", message: "" });
   }

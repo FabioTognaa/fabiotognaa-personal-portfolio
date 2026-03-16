@@ -1,6 +1,5 @@
 import Header from "../ui/Header";
 import AsideBar from "../ui/AsideBar";
-import NavButton from "../ui/NavButton";
 function HomeSection() {
   return (
     <section className="relative m-0 h-screen" id="home">
@@ -14,11 +13,12 @@ function HomeSection() {
           Sono uno studente di informatica presso l'università degli studi di
           Pisa. Questo è il mio sito web personale.
         </p>
-        <NavButton
-          href={"#about"}
-          label={"Esplora"}
-          className={"mt-18 -translate-x-2 md:mt-4 md:-translate-x-6"}
-        />
+        <a
+          href="#about"
+          className="mt-4 translate-x-40 rounded-full border border-blue-400 px-7 py-2.5 text-base font-semibold tracking-wide text-[#0a2342] no-underline transition-all duration-150 ease-out hover:bg-[#0a2342] hover:text-white hover:-translate-y-0.5 active:translate-y-0 active:scale-95 md:translate-x-6"
+        >
+          Esplora
+        </a>
       </div>
     </section>
   );
