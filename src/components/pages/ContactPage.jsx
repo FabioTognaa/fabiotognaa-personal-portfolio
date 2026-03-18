@@ -53,11 +53,13 @@ function ContactPage() {
 
   return (
     <main className="min-h-screen px-4 py-28 md:px-8">
+      
       <div className="mx-auto w-full max-w-xl rounded-2xl border border-blue-300 bg-transparent p-6 shadow-xl/10 md:p-10">
         <div className="mb-8 flex items-center justify-between gap-4">
           <h1 className="text-3xl font-semibold tracking-wide text-[#0a2342] md:text-4xl">
             Contattami
           </h1>
+          {/* Link per tornare alla home */}
           <a
             href="/"
             className="rounded-full border border-blue-300 px-4 py-2 text-sm font-semibold text-[#0a2342] transition hover:bg-blue-300 hover:text-whit transition-all duration-150 hover:-translate-y-1"
@@ -65,9 +67,10 @@ function ContactPage() {
             Torna alla home
           </a>
         </div>
-
+        {/*Form di contatto */}
         <form className="space-y-4" onSubmit={onSubmit}>
           <div>
+            {/* Nome */}
             <label className="mb-1 block text-sm font-semibold text-[#0a2342]">
               Nome
             </label>
@@ -83,6 +86,7 @@ function ContactPage() {
           </div>
 
           <div>
+            {/* Email */}
             <label className="mb-1 block text-sm font-semibold text-[#0a2342]">
               Email
             </label>
@@ -98,7 +102,7 @@ function ContactPage() {
               autoComplete="email"
             />
           </div>
-
+          {/* Messaggio */}
           <div>
             <label className="mb-1 block text-sm font-semibold text-[#0a2342]">
               Messaggio
@@ -115,6 +119,7 @@ function ContactPage() {
             />
           </div>
 
+          {/* Bottone di invio */}
           <button
             type="submit"
             disabled={!canSubmit}
@@ -123,12 +128,14 @@ function ContactPage() {
             {status === "sending" ? "Invio in corso..." : "Invia"}
           </button>
 
+          {/* Messaggio di successo dopo l'invio*/}
           {status === "success" && (
             <p className="rounded-lg border border-green-300 bg-green-50 p-3 text-sm text-green-800">
               Messaggio inviato correttamente. Ti risponderò appena possibile.
             </p>
           )}
 
+          {/* Messaggio di errore durante l'invio*/}
           {status === "error" && (
             <p className="rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-800">
               {errorMsg || "Errore durante l'invio."}

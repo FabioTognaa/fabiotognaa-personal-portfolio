@@ -2,7 +2,7 @@
 
 ![Banner Principale](/public/screenshots/desktop-preview.png)
 
-[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://fabiotognaa.github.io/)
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://fabiotognaa-personal-portfolio.vercel.app)
 
 ## 👋 Introduzione
 
@@ -26,11 +26,12 @@ Ecco le tecnologie e gli strumenti utilizzati per realizzare questo progetto:
 
 | Categoria           | Tecnologie                          |
 | :------------------ | :---------------------------------- |
+| **Build Tool**      | Vite                                |
+| **Database**        | Supabase                            |
 | **Frontend**        | React, Tailwind CSS, Headless UI    |
 | **Code Quality**    | Prettier (Tailwind Plugin), ESLint  |
-| **Build Tool**      | Vite                                |
 | **Version Control** | Git & GitHub                        |
-| **Deployment**      | GitHub Pages                        |
+| **Deployment**      | Vercel                              |
 | **Design & Assets** | Canva (editing immagini), HeroIcons |
 
 ## 📸 Anteprima
@@ -48,35 +49,33 @@ Ecco le tecnologie e gli strumenti utilizzati per realizzare questo progetto:
 Come far girare questo progetto in locale:
 
 **Prerequisiti:**
-Assicurati di avere installato [Node.js](https://nodejs.org/) e [npm](https://www.npmjs.com/).
+Assicurati di avere installato [Node.js](https://nodejs.org/) e `pnpm`.
 
 1.  **Clona il repository:**
 
     ```bash
-    git clone https://github.com/FabioTognaa/fabiotognaa.github.io
+    git clone https://fabiotognaa-personal-portfolio.vercel.app
     ```
 
 2.  **Entra nella cartella:**
 
     ```bash
-    cd fabiotognaa.github.io
+    cd fabiotognaa-personal-portfolio
     ```
 
 3.  **Installa le dipendenze:**
 
     ```bash
-    npm install
-    # oppure
-    yarn install
+    pnpm install
     ```
 
 4.  **Avvia il server di sviluppo:**
 
     ```bash
-    npm run dev
+    pnpm dev
     ```
 
-5.  Apri il browser all'indirizzo `http://localhost:5173`.
+5.  Apri il browser all'indirizzo `localhost` presente sul tuo terminale.
 
 ## 📂 Struttura del Progetto
 
@@ -88,16 +87,18 @@ Assicurati di avere installato [Node.js](https://nodejs.org/) e [npm](https://ww
 │   └── me-acquerelli.svg       # Icone/Loghi
 │
 ├── src/
-│   ├── assets/                 # Immagini e font importati
+│   ├── assets/                 # File immagine e SVG
 │   ├── components/
-│   │   ├── sections/           # Sezioni della pagina
-│   │   └── ui/                 # Componenti riutilizzabili
-│   ├── App.jsx                 # Componente principale
+│   │   ├── pages/              # Pagine/route (es. Home/Contact)
+│   │   ├── sections/           # Sezioni riutilizzate nella pagina
+│   │   └── ui/                 # Componenti UI riutilizzabili
+│   ├── lib/                    # Utilità (es. client Supabase)
 │   ├── main.jsx                # Entry point React
-│   └── index.css               # Stili globali
+│   ├── index.css               # Stili globali
+│   └── App.jsx                 # Componente principale
 │
 ├── index.html                  # Entry point HTML
-└── [config files]              # File di config (Vite, Tailwind, json)
+└── [config files]              # Config (Vite, Tailwind, ESLint, Vercel)
 ````
 
 ## 📬 Contatti

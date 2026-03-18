@@ -21,9 +21,9 @@ function ContactSection() {
     },
   ];
   return (
-    <footer className="h-full bg-transparent py-8 mt-16 md:mt-28" id="contatti">
+    <footer className="mt-16 h-full bg-transparent py-8 md:mt-28" id="contatti">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex  items-center justify-between border-b border-blue-300 md:pb-8">
+        <div className="flex items-center justify-between border-b border-blue-300 md:pb-8">
           <span className="mb-4 text-2xl font-semibold md:mb-0 md:text-3xl">
             Fabio Tognarelli
           </span>
@@ -67,8 +67,16 @@ function ContactSection() {
 
           <div>
             <h3 className="mb-4 text-lg font-semibold">Contatti</h3>
-            <p>Email: fabiotognaa@gmail.com</p>
-            <p>Telefono: +39 366 838 1469</p>
+            <p className="mb-4">
+              Email:
+              <br />
+              fabiotognaa@gmail.com
+            </p>
+            <p>
+              Telefono:
+              <br />
+              +39 366 838 1469
+            </p>
           </div>
         </div>
 

@@ -9,13 +9,13 @@ function HomeSection() {
         <h1 className="animate-fade-in-slide-up text-3xl font-semibold opacity-0 delay-500 sm:text-4xl md:mb-3.5 md:text-5xl">
           Ciao, sono Fabio Tognarelli!
         </h1>
-        <p className="animate-fade-in-slide-up mt-4 mb-6 text-base font-light opacity-0 delay-700 sm:text-lg md:mb-4">
+        <p className="animate-fade-in-slide-up mt-4 mb-6 text-sm font-light opacity-0 delay-700 md:mb-4 md:text-lg">
           Sono uno studente di informatica presso l'università degli studi di
           Pisa. Questo è il mio sito web personale.
         </p>
         <a
           href="#about"
-          className="mt-4 translate-x-40 rounded-full border border-blue-400 px-7 py-2.5 text-base font-semibold tracking-wide text-[#0a2342] no-underline transition-all duration-150 ease-out hover:bg-[#0a2342] hover:text-white hover:-translate-y-0.5 active:translate-y-0 active:scale-95 md:translate-x-6"
+          className="mt-4 -translate-x-2 rounded-full border border-blue-400 px-7 py-2.5 text-base font-semibold tracking-wide text-[#0a2342] no-underline transition-all duration-150 ease-out hover:-translate-y-0.5 hover:bg-[#0a2342] hover:text-white active:translate-y-0 active:scale-95"
         >
           Esplora
         </a>
