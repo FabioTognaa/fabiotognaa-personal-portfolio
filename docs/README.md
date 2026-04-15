@@ -105,7 +105,7 @@ Assicurati di avere installato [Node.js](https://nodejs.org/) e `pnpm`.
 
 Se hai domande o vuoi collaborare, non esitare a contattarmi!
 
-Website: https://fabiotognaa.github.io/
+Website: https://fabiotognaa-personal-portfolio.vercel.app
 
 LinkedIn: https://www.linkedin.com/in/fabio-tognarelli/
 
