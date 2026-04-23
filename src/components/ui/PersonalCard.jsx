@@ -1,15 +1,16 @@
 //* CARD PERSONALE CON AVATAR TESTUALE E LINK PER DOWNLOAD CV
-
+import avatar from "../../assets/tognarelli.svg";
 function PersonalCard() {
   return (
-    <div className="mx-auto flex w-full max-w-sm hover:-translate-y-1 flex-1 flex-col justify-center rounded-lg border border-blue-300 p-4 text-center transition-all duration-200 ease-in-out hover:shadow-xl/20 sm:max-w-md md:mx-0">
+    <div className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center rounded-lg border border-blue-300 p-4 text-center transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-xl/20 sm:max-w-md md:mx-0">
       <div className="mt-3 flex flex-col items-center gap-2">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-sky-400 text-xl font-semibold text-white shadow-md md:h-20 md:w-20 md:text-2xl">
-          FT
+        <div className="h-60 w-60 overflow-hidden rounded-full shadow-md ring-2 ring-blue-200 transition-all duration-200 ease-in-out hover:shadow-xl/20">
+          <img
+            src={avatar}
+            alt="Avatar di Fabio Tognarelli"
+            className="h-full w-full object-cover object-center"
+          />
         </div>
-        <p className="text-xs text-slate-500 font-light">
-          *Avatar temporaneo, in attesa di una foto reale.
-        </p>
       </div>
       <div className="mt-5 mb-0 p-0">
         <span className="text-2xl font-semibold">Fabio Tognarelli</span>
