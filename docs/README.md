@@ -44,6 +44,10 @@ Ecco le tecnologie e gli strumenti utilizzati per realizzare questo progetto:
 
 ![Mobile Screenshot](/public/screenshots/mobile-preview.png)
 
+### Form Page
+
+![Desktop Screenshot](/public/screenshots/form-preview.png)
+
 ## 🚀 Come avviare il progetto in locale
 
 Come far girare questo progetto in locale:
