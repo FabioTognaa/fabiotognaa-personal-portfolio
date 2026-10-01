@@ -2,9 +2,6 @@
 
 ### PROBLEMI ATTUALI
 
-- Il sito chiede **permessi strani** ed ambigui di accesso a risorse del telefono in stile "sito con virus palesi".
-Fai un **/grilling** per capire meglio la questione e come risolverla
-
 - Non è stata implementata **nessuna cookies policy**. Domanda: serve davvero in questo sito, rischio problemi e rogne di qualche tipo a non averla? ovviamente sarebbe meglio fosse gratis
 
 ### PROSSIME IMPLEMENTAZIONI
@@ -15,5 +12,3 @@ Fai un **/grilling** per capire meglio la questione e come risolverla
   - `Frontend/public/robots.txt` — riga `Sitemap:`
   - `package.json` → `homepage`, `README.md` (badge/demo)
   - dashboard Web3Forms (domain allowlist) e Vercel Domains
-
-- aggiungi le **certificazioni** ottenuto su **Anthropic Academy** in unsa sezione apposita: le trovi [qui]("./certificates/")

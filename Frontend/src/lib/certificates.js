@@ -1,29 +1,31 @@
-import { certificateFiles } from "./static-assets";
-
 export const certificates = [
   {
     id: "Anthropic",
     title: "Anthropic Academy",
     links: [
       {
-        label: "Claude 101",
-        href: certificateFiles.claude101,
-      },
-      {
-        label: "Claude Code 101",
-        href: certificateFiles.code101,
+        label: "Subagents",
+        href: "https://verify.skilljar.com/c/uyzin4z9pm3v",
       },
       {
         label: "Cowork",
-        href: certificateFiles.cowork,
+        href: "https://verify.skilljar.com/c/uwpo5bisiees",
       },
       {
-        label: "Agents skills",
-        href: certificateFiles.agentSkills,
+        label: "Agent skills",
+        href: "https://verify.skilljar.com/c/5g689brwzcge",
       },
       {
-        label: "AI for businesses",
-        href: certificateFiles.aiForBusinesses,
+        label: "Claude Code",
+        href: "https://verify.skilljar.com/c/9e8wn7jjs7yv",
+      },
+      {
+        label: "Claude",
+        href: "https://verify.skilljar.com/c/wfcw5qctz54g",
+      },
+      {
+        label: "AI for business",
+        href: "https://verify.skilljar.com/c/qdfh45a2xk6v",
       },
     ],
   },

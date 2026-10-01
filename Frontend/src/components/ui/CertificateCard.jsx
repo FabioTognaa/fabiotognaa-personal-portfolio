@@ -19,13 +19,9 @@ function CertificateCard({ certificate }) {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              type="application/pdf"
             >
               {link.label}
-              <span className="sr-only">
-                {" "}
-                (PDF, si apre in una nuova scheda)
-              </span>
+              <span className="sr-only"> (si apre in una nuova scheda)</span>
             </a>
           </li>
         ))}
