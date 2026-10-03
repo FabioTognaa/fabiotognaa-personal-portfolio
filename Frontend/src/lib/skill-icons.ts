@@ -22,33 +22,41 @@ const ICON_LOADERS = {
   wordpress: () => import("../assets/icons/skills/wordpress-icon.svg"),
 };
 
-const iconCache = new Map();
-const iconRequests = new Map();
+export type SkillIconKey = keyof typeof ICON_LOADERS;
 
-export function loadSkillIcon(key) {
-  if (!key || !ICON_LOADERS[key]) {
+const iconCache = new Map<SkillIconKey, string>();
+const iconRequests = new Map<SkillIconKey, Promise<string | null>>();
+
+function isSkillIconKey(key: string): key is SkillIconKey {
+  return Object.prototype.hasOwnProperty.call(ICON_LOADERS, key);
+}
+
+export function loadSkillIcon(key: string | undefined | null) {
+  if (!key || !isSkillIconKey(key)) {
     return Promise.resolve(null);
   }
 
-  if (iconCache.has(key)) {
-    return Promise.resolve(iconCache.get(key));
+  const cached = iconCache.get(key);
+  if (cached) {
+    return Promise.resolve(cached);
   }
 
-  if (!iconRequests.has(key)) {
-    iconRequests.set(
-      key,
-      ICON_LOADERS[key]()
-        .then((mod) => {
-          const src = mod.default;
-          iconCache.set(key, src);
-          return src;
-        })
-        .catch(() => null)
-        .finally(() => {
-          iconRequests.delete(key);
-        }),
-    );
+  const pending = iconRequests.get(key);
+  if (pending) {
+    return pending;
   }
 
-  return iconRequests.get(key);
+  const request = ICON_LOADERS[key]()
+    .then((mod) => {
+      const src = mod.default;
+      iconCache.set(key, src);
+      return src;
+    })
+    .catch(() => null)
+    .finally(() => {
+      iconRequests.delete(key);
+    });
+
+  iconRequests.set(key, request);
+  return request;
 }

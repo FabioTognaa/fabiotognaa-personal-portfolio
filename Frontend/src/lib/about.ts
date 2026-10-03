@@ -1,3 +1,5 @@
+import type { Direction } from "./types";
+
 export const DIRECTIONS = [
   {
     label: "Data & AI",
@@ -11,4 +13,4 @@ export const DIRECTIONS = [
     label: "Team",
     text: "Sono profondamente convinto nel prezioso valore aggiunto che rappresenta poter imparare al fianco di persone piu' esperte ed abili. Faccio sempre tesoro degli insegnamenti che ricevo e dei legami che creo con gli altri.",
   },
-];
+] satisfies Direction[];

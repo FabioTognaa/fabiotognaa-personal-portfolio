@@ -5,7 +5,7 @@ import { siteNav, headerCta } from "../../lib/navigation";
 
 const MobileNavDrawer = lazy(() => import("./MobileNavDrawer"));
 
-function MenuIcon({ className }) {
+function MenuIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}

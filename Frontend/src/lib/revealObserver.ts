@@ -1,10 +1,8 @@
 const REVEAL_OPTIONS = { threshold: 0.14, rootMargin: "0px 0px -6% 0px" };
 
-/** @type {IntersectionObserver | null} */
-let observer = null;
+let observer: IntersectionObserver | null = null;
 
-/** @type {Map<Element, (visible: boolean) => void>} */
-const listeners = new Map();
+const listeners = new Map<Element, (visible: boolean) => void>();
 
 function ensureObserver() {
   if (observer || typeof window === "undefined") return observer;
@@ -19,7 +17,10 @@ function ensureObserver() {
   return observer;
 }
 
-export function observeReveal(node, onVisible) {
+export function observeReveal(
+  node: Element,
+  onVisible: (visible: boolean) => void,
+) {
   const io = ensureObserver();
   if (!io) return () => {};
 

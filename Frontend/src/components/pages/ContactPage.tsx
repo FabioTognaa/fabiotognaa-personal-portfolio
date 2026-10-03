@@ -1,13 +1,24 @@
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, type FormEvent } from "react";
 import Button from "../ui/Button";
 import Reveal from "../ui/Reveal";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import type {
+  ContactField,
+  ContactFieldErrors,
+  ContactFormValues,
+  ContactStatus,
+} from "../../lib/types";
 
 const HCAPTCHA_SITEKEY = "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
 
+type Web3FormsResponse = {
+  success?: boolean;
+  message?: string;
+};
+
 // validazione campi del form
-function validateContactForm(values) {
-  const errors = {};
+function validateContactForm(values: ContactFormValues) {
+  const errors: ContactFieldErrors = {};
   const name = values.name.trim();
   const email = values.email.trim();
   const message = values.message.trim();
@@ -30,7 +41,7 @@ function validateContactForm(values) {
 }
 
 // se ci fosse un errore in un campo del form
-function FieldError({ id, message }) {
+function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) {
     return null;
   }
@@ -43,12 +54,16 @@ function FieldError({ id, message }) {
 }
 
 function ContactPage() {
-  const captchaRef = useRef(null);
-  const [status, setStatus] = useState("idle");
+  const captchaRef = useRef<HCaptcha>(null);
+  const [status, setStatus] = useState<ContactStatus>("idle");
   const [formError, setFormError] = useState("");
-  const [fieldErrors, setFieldErrors] = useState({});
+  const [fieldErrors, setFieldErrors] = useState<ContactFieldErrors>({});
   const [captchaToken, setCaptchaToken] = useState("");
-  const [values, setValues] = useState({ name: "", email: "", message: "" });
+  const [values, setValues] = useState<ContactFormValues>({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   const canSubmit = useMemo(() => {
     const nameOk = values.name.trim().length > 0;
@@ -68,7 +83,7 @@ function ContactPage() {
     captchaRef.current?.resetCaptcha();
   }
 
-  function clearFieldError(field) {
+  function clearFieldError(field: ContactField) {
     setFieldErrors((current) => {
       if (!current[field]) {
         return current;
@@ -79,7 +94,7 @@ function ContactPage() {
     });
   }
 
-  function updateField(field, value) {
+  function updateField(field: ContactField, value: string) {
     setValues((current) => ({ ...current, [field]: value }));
     clearFieldError(field);
     if (formError) {
@@ -87,7 +102,7 @@ function ContactPage() {
     }
   }
 
-  async function onSubmit(e) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const errors = validateContactForm(values);
@@ -96,7 +111,7 @@ function ContactPage() {
       setFieldErrors(errors);
       setFormError("");
       setStatus("idle");
-      const firstInvalid = ["name", "email", "message"].find(
+      const firstInvalid = (["name", "email", "message"] as const).find(
         (field) => errors[field],
       );
       if (firstInvalid) {
@@ -111,7 +126,7 @@ function ContactPage() {
       return;
     }
 
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
     // Access key Web3Forms: pubblica by design (non è una secret API key).
     formData.set("access_key", "358268f4-393b-498c-a153-6f078e3737b4");
     // set() sovrascrive l'eventuale textarea vuota che il widget hCaptcha mette nel form
@@ -126,7 +141,7 @@ function ContactPage() {
         method: "POST",
         body: formData,
       });
-      const data = await response.json();
+      const data = (await response.json()) as Web3FormsResponse;
 
       if (!response.ok || !data.success) {
         setStatus("error");
@@ -142,9 +157,10 @@ function ContactPage() {
       setValues({ name: "", email: "", message: "" });
       resetCaptcha();
     } catch (error) {
+      const message = error instanceof Error ? error.message : "";
       setStatus("error");
       setFormError(
-        error.message ||
+        message ||
           "Non sono riuscito a inviare il messaggio. Riprova tra poco.",
       );
       resetCaptcha();

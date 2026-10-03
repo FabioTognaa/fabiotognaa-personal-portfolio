@@ -10,8 +10,14 @@ import {
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { siteNav, headerCta } from "../../lib/navigation";
 
-function MobileNavDrawer({ open, onClose }) {
-  const closeButtonRef = useRef(null);
+function MobileNavDrawer({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: () => void;
+}) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   return (
     <Transition show={open} as={Fragment}>

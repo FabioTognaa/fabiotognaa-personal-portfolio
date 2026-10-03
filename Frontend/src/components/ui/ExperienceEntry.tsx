@@ -1,7 +1,15 @@
 import Reveal from "./Reveal";
+import type { ExperienceEntryData } from "../../lib/types";
 
-function ExperienceEntry({ entry, index }) {
-  const hasHighlights = entry.highlights?.length > 0;
+function ExperienceEntry({
+  entry,
+  index,
+}: {
+  entry: ExperienceEntryData;
+  index: number;
+}) {
+  const highlights = entry.highlights ?? [];
+  const hasHighlights = highlights.length > 0;
 
   return (
     <Reveal
@@ -40,7 +48,7 @@ function ExperienceEntry({ entry, index }) {
 
         {hasHighlights && (
           <ul className="border-line/80 text-ink-muted mt-5 space-y-2 border-t pt-4 text-sm leading-relaxed">
-            {entry.highlights.map((line) => (
+            {highlights.map((line) => (
               <li key={line} className="flex gap-2.5">
                 <span
                   className="bg-accent mt-2 h-1 w-1 shrink-0 rounded-full"

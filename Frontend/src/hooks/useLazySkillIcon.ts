@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { loadSkillIcon } from "../lib/skill-icons";
 
-export function useLazySkillIcon(iconKey, enabled = true) {
-  const [icon, setIcon] = useState({ key: null, src: null });
-  const ref = useRef(null);
+export function useLazySkillIcon(iconKey?: string, enabled = true) {
+  const [icon, setIcon] = useState<{
+    key: string | null;
+    src: string | null;
+  }>({ key: null, src: null });
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     if (!enabled || !iconKey) {
@@ -34,7 +37,7 @@ export function useLazySkillIcon(iconKey, enabled = true) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           load();
           observer.disconnect();
         }

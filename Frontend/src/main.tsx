@@ -7,12 +7,17 @@ import "@fontsource/hanken-grotesk/latin-400.css";
 import "@fontsource/hanken-grotesk/latin-500.css";
 import "@fontsource/hanken-grotesk/latin-600.css";
 import "./index.css";
-import App from "./components/App.jsx";
+import App from "./components/App";
 
-createRoot(document.getElementById("root")).render(
+const root = document.getElementById("root");
+if (!root) {
+  throw new Error("Root element #root not found");
+}
+
+createRoot(root).render(
   <StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 );

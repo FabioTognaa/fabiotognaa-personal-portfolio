@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
@@ -10,7 +10,7 @@ const frontendDir = path.resolve(rootDir, "Frontend");
 const indexHtmlPath = path.resolve(frontendDir, "index.html");
 
 // Blocca le build in produzione del progetto qualora Impeccabile Live (skill agentica) viene iniettato in dist/index.html
-function rejectImpeccableLive() {
+function rejectImpeccableLive(): Plugin {
   const forbidden = /localhost:8400|impeccable-live/i;
 
   return {

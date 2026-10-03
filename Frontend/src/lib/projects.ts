@@ -10,6 +10,8 @@
  * - status: "coming-soon" | "published"
  */
 
+import type { Project } from "./types";
+
 export const projects = [
   {
     id: "slot-1",
@@ -64,6 +66,6 @@ export const projects = [
     github: "",
     link: "",
   },
-];
+] satisfies Project[];
 
 export { CV_PATH, CV_FILENAME } from "./static-assets";

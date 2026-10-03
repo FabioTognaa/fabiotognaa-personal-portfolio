@@ -2,7 +2,15 @@ import Reveal from "../ui/Reveal";
 import { Link } from "react-router-dom";
 import { DIRECTIONS } from "../../lib/about";
 
-function AboutQuote({ quote, author, delay = 0 }) {
+function AboutQuote({
+  quote,
+  author,
+  delay = 0,
+}: {
+  quote: string;
+  author: string;
+  delay?: number;
+}) {
   return (
     <Reveal as="figure" delay={delay} className="about-quote">
       <span className="about-quote__mark" aria-hidden>

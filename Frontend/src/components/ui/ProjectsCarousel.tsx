@@ -3,8 +3,10 @@
  * L'indice attivo segue lo scroll via IntersectionObserver, non scroll events.
  */
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { KeyboardEvent } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import ProjectCard from "./ProjectCard";
+import type { Project } from "../../lib/types";
 
 // ID univoco dell'hint di accessibilità per chi usa il carosello progetti
 const HINT_ID = "projects-carousel-hint";
@@ -14,7 +16,10 @@ const SLIDE_SELECTOR = "[data-slide-index]";
 
 // Array di soglie di visibilità (0.0, 0.1, ..., 1.0) per l'IntersectionObserver,
 // utile per capire "quanto" di ciascuno slide è visibile, in modo granulare (passi del 10%)
-const VISIBILITY_THRESHOLDS = Array.from({ length: 11 }, (_, step) => step * 0.1);
+const VISIBILITY_THRESHOLDS = Array.from(
+  { length: 11 },
+  (_, step) => step * 0.1,
+);
 
 //se si preferisce ridurre l'animazione
 function prefersReducedMotion() {
@@ -23,12 +28,15 @@ function prefersReducedMotion() {
 }
 
 //funzione per selezionare una slide
-function getSlides(track) {
-  return [...track.querySelectorAll(SLIDE_SELECTOR)];
+function getSlides(track: ParentNode) {
+  return [...track.querySelectorAll<HTMLElement>(SLIDE_SELECTOR)];
 }
 
 /** Indice dello slide con la maggior parte visibile nel track. */
-function indexOfMostVisible(slides, visibilityBySlide) {
+function indexOfMostVisible(
+  slides: readonly Element[],
+  visibilityBySlide: Map<Element, number>,
+) {
   let bestIndex = 0;
   let bestRatio = 0;
 
@@ -43,16 +51,15 @@ function indexOfMostVisible(slides, visibilityBySlide) {
   return bestRatio > 0 ? bestIndex : null;
 }
 
-/** @param {{ projects: import("../../lib/projects").projects }} props */
-function ProjectsCarousel({ projects }) {
-  const trackRef = useRef(null);
+function ProjectsCarousel({ projects }: { projects: readonly Project[] }) {
+  const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const lastIndex = projects.length - 1;
   const canGoPrev = activeIndex > 0;
   const canGoNext = activeIndex < lastIndex;
 
-  const scrollToIndex = useCallback((index) => {
+  const scrollToIndex = useCallback((index: number) => {
     const slide = trackRef.current?.querySelector(
       `${SLIDE_SELECTOR}[data-slide-index="${index}"]`,
     );
@@ -75,7 +82,7 @@ function ProjectsCarousel({ projects }) {
     const slides = getSlides(track);
     if (slides.length === 0) return;
 
-    const visibilityBySlide = new Map();
+    const visibilityBySlide = new Map<Element, number>();
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -99,7 +106,7 @@ function ProjectsCarousel({ projects }) {
     };
   }, [projects.length]);
 
-  function handleKeyDown(event) {
+  function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (event.key === "ArrowLeft" && canGoPrev) {
       event.preventDefault();
       scrollToIndex(activeIndex - 1);
@@ -171,10 +178,7 @@ function ProjectsCarousel({ projects }) {
         </p>
       </div>
 
-      <p
-        className="projects-carousel__hint text-ink-soft text-sm"
-        id={HINT_ID}
-      >
+      <p className="projects-carousel__hint text-ink-soft text-sm" id={HINT_ID}>
         Scorri orizzontalmente.
       </p>
     </div>

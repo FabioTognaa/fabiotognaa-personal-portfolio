@@ -22,13 +22,13 @@ Il progetto è costruito con un approccio moderno, pulito e focalizzato sulle pe
 
 Ecco le tecnologie e gli strumenti utilizzati per realizzare questo progetto:
 
-| Categoria           | Tecnologie                                     |
-| :------------------ | :--------------------------------------------- |
-| **Build Tool**      | Vite                                           |
-| **Frontend**        | React, React Router, Tailwind CSS, Headless UI |
-| **Form di contatto**| Web3Forms                                      |
-| **Version Control** | Git & GitHub                                   |
-| **Deployment**      | Vercel                                         |
+| Categoria            | Tecnologie                                     |
+| :------------------- | :--------------------------------------------- |
+| **Build Tool**       | Vite                                           |
+| **Frontend**         | React, React Router, Tailwind CSS, Headless UI |
+| **Form di contatto** | Web3Forms                                      |
+| **Version Control**  | Git & GitHub                                   |
+| **Deployment**       | Vercel                                         |
 
 ## Come avviare il progetto in locale
 
@@ -65,13 +65,14 @@ Assicurati di avere installato [Node.js](https://nodejs.org/) e [pnpm](https://p
 
 ### Altri comandi utili
 
-| Comando               | Descrizione                         |
-| :-------------------- | :---------------------------------- |
-| `pnpm build`          | Build di produzione in `dist/`      |
-| `pnpm preview`        | Anteprima locale della build        |
-| `pnpm lint`           | Controllo ESLint                    |
-| `pnpm deploy`         | Build + deploy produzione su Vercel |
-| `pnpm deploy:preview` | Build + deploy preview su Vercel    |
+| Comando               | Descrizione                           |
+| :-------------------- | :------------------------------------ |
+| `pnpm build`          | Build di produzione in `dist/`        |
+| `pnpm preview`        | Anteprima locale della build          |
+| `pnpm lint`           | Controllo ESLint                      |
+| `pnpm typecheck`      | Controllo TypeScript (`tsc --noEmit`) |
+| `pnpm deploy`         | Build + deploy produzione su Vercel   |
+| `pnpm deploy:preview` | Build + deploy preview su Vercel      |
 
 ### Quality gate
 
@@ -80,14 +81,16 @@ Prima di chiudere modifiche non banali, esegui:
 ```bash
 pnpm build
 pnpm lint
+pnpm typecheck
 pnpm audit --audit-level high
 ```
 
 La stessa catena gira in GitHub Actions su pull request e push verso `main` tramite `.github/workflows/quality-gate.yml`.
 
-Limiti attuali: il progetto non ha TypeScript/typecheck né un test framework configurato. Questi controlli non vanno considerati coperti finché non vengono aggiunti esplicitamente.
+Limiti attuali: il progetto non ha un test framework configurato. Quel controllo non va considerato coperto finché non viene aggiunto esplicitamente.
 
 ## Struttura del Progetto
+
 ```text
 ├── Frontend/
 │   ├── index.html
@@ -109,15 +112,18 @@ Limiti attuali: il progetto non ha TypeScript/typecheck né un test framework co
 │   │   │   └── ui/
 │   │   ├── hooks/
 │   │   ├── lib/
-│   │   │   └── static-assets.js    # path pubblici centralizzati
-│   │   ├── main.jsx
+│   │   │   ├── static-assets.ts    # path pubblici centralizzati
+│   │   │   └── types.ts
+│   │   ├── main.tsx
 │   │   └── index.css
 │   └── dist/                      # output build (generato)
 │
 ├── package.json
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml          # override pnpm per patch di sicurezza transitive
-├── vite.config.js
+├── vite.config.ts
+├── tsconfig.json
+├── tsconfig.node.json
 ├── eslint.config.js
 ├── .github/workflows/quality-gate.yml
 ├── .cursor/                    # agenti, rules e quality gate del pilot
@@ -125,7 +131,7 @@ Limiti attuali: il progetto non ha TypeScript/typecheck né un test framework co
 └── vercel.json
 ```
 
-**Asset non-code:** foto, loghi e PDF in `public/`; icone skill in `src/assets/icons/skills/` (bundled da Vite). Gli URL pubblici sono definiti in `src/lib/static-assets.js`.
+**Asset non-code:** foto, loghi e PDF in `public/`; icone skill in `src/assets/icons/skills/` (bundled da Vite). Gli URL pubblici sono definiti in `src/lib/static-assets.ts`.
 
 ## Contatti
 

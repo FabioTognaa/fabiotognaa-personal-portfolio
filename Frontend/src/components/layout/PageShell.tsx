@@ -19,7 +19,7 @@ function PageFallback() {
   );
 }
 
-function PageShell({ className = "" }) {
+function PageShell({ className = "" }: { className?: string }) {
   const location = useLocation();
 
   return (

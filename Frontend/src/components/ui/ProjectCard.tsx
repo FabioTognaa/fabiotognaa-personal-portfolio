@@ -7,9 +7,10 @@
  */
 import Button from "./Button";
 import { useLazySkillIcon } from "../../hooks/useLazySkillIcon";
+import type { Project, StackTag } from "../../lib/types";
 
 /** Badge stack: label + icona opzionale caricata solo quando entra in viewport. */
-function StackTag({ item }) {
+function StackTag({ item }: { item: StackTag }) {
   const { ref, src } = useLazySkillIcon(item.icon, Boolean(item.icon));
   const isPhp = item.icon === "php";
   const size = isPhp ? 18 : 14;
@@ -40,8 +41,7 @@ function StackTag({ item }) {
   );
 }
 
-/** @param {{ project: import("../../lib/projects").projects[number] }} props */
-function ProjectCard({ project }) {
+function ProjectCard({ project }: { project: Project }) {
   const { title, description, context, stack, github, link, mentions, status } =
     project;
   const isComingSoon = status === "coming-soon";

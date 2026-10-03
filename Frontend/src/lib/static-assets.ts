@@ -1,6 +1,8 @@
 /** URL pubblici serviti da Frontend/public/ (Vite publicDir). */
 
-export const profileImage = {
+import type { ImageAsset } from "./types";
+
+export const profileImage: ImageAsset = {
   src: "/images/profile/tognarelli-800.webp",
   srcSet:
     "/images/profile/tognarelli-480.webp 480w, /images/profile/tognarelli-800.webp 800w, /images/profile/tognarelli-1200.webp 1200w",
@@ -31,4 +33,4 @@ export const educationLogos = {
       "/images/logos/jevis-120.webp 120w, /images/logos/jevis-240.webp 240w",
     sizes: "120px",
   },
-};
+} satisfies Record<string, ImageAsset>;

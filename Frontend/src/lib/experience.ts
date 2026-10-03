@@ -1,4 +1,5 @@
 import { educationLogos } from "./static-assets";
+import type { ExperienceEntryData } from "./types";
 
 /**
  * Schema entry:
@@ -29,4 +30,4 @@ export const experiencePath = [
       "Framework: React, Tailwind, Fastapi, PostgreSQL",
     ],
   },
-];
+] satisfies ExperienceEntryData[];

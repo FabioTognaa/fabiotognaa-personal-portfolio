@@ -1,3 +1,5 @@
+import type { SkillGroup } from "./types";
+
 export const skillGroups = [
   {
     id: "backend",
@@ -57,9 +59,9 @@ export const skillGroups = [
     summary:
       "Container con Docker e pipeline CI/CD su GitHub Actions: ambienti riproducibili e deploy automatizzati.",
     items: [
-      { 
-        label: "Docker", 
-        icon: "docker"
+      {
+        label: "Docker",
+        icon: "docker",
       },
       {
         label: "GitHub Actions",
@@ -75,7 +77,7 @@ export const skillGroups = [
       {
         label: "HTML",
         icon: "html",
-        },
+      },
       {
         label: "CSS",
         icon: "css",
@@ -104,17 +106,18 @@ export const skillGroups = [
         label: "Java",
         icon: "java",
       },
-      { 
-        label: "C", 
-        icon: "c"},
+      {
+        label: "C",
+        icon: "c",
+      },
       {
         label: "C++",
         icon: "cpp",
       },
     ],
   },
-];
+] satisfies SkillGroup[];
 
-export function skillKey(groupId, label) {
+export function skillKey(groupId: string, label: string) {
   return `${groupId}:${label}`;
 }

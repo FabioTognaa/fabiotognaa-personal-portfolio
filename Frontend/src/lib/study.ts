@@ -1,4 +1,5 @@
 import { educationLogos } from "./static-assets";
+import type { StudyEntryData } from "./types";
 
 export const studyPath = [
   {
@@ -22,4 +23,4 @@ export const studyPath = [
       "Corsi rilevanti:   Analisi | Architettura e Sistemi Operativi | Programmazione & Algoritmica | Ricerca Operativa | Algebra Lineare | Calcolo Numerico",
     ],
   },
-];
+] satisfies StudyEntryData[];

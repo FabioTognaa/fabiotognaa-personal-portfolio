@@ -1,7 +1,15 @@
 import Reveal from "./Reveal";
+import type { StudyEntryData } from "../../lib/types";
 
-function StudyEntry({ entry, index }) {
-  const hasDetails = entry.details?.length > 0;
+function StudyEntry({
+  entry,
+  index,
+}: {
+  entry: StudyEntryData;
+  index: number;
+}) {
+  const details = entry.details ?? [];
+  const hasDetails = details.length > 0;
 
   return (
     <Reveal
@@ -37,7 +45,7 @@ function StudyEntry({ entry, index }) {
 
         {hasDetails && (
           <ul className="border-line/80 text-ink-muted mt-5 space-y-2 border-t pt-4 text-sm leading-relaxed">
-            {entry.details.map((line) => (
+            {details.map((line) => (
               <li key={line} className="flex gap-2.5">
                 <span
                   className="bg-accent mt-2 h-1 w-1 shrink-0 rounded-full"

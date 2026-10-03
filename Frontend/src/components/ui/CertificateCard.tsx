@@ -1,4 +1,6 @@
-function CertificateCard({ certificate }) {
+import type { Certificate } from "../../lib/types";
+
+function CertificateCard({ certificate }: { certificate: Certificate }) {
   return (
     <article className="skill-card surface-panel relative flex h-full flex-col overflow-hidden p-6 md:p-8">
       <header className="skill-card__header relative">

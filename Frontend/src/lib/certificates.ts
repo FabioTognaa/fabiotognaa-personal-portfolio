@@ -1,3 +1,5 @@
+import type { Certificate } from "./types";
+
 export const certificates = [
   {
     id: "Anthropic",
@@ -29,4 +31,4 @@ export const certificates = [
       },
     ],
   },
-];
+] satisfies Certificate[];

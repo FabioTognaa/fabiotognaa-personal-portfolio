@@ -1,6 +1,7 @@
 import { useLazySkillIcon } from "../../hooks/useLazySkillIcon";
+import type { SkillGroup } from "../../lib/types";
 
-function SkillIcon({ iconKey }) {
+function SkillIcon({ iconKey }: { iconKey?: string }) {
   const { ref, src } = useLazySkillIcon(iconKey, Boolean(iconKey));
   const isPhp = iconKey === "php";
   const size = isPhp ? 18 : 14;
@@ -30,7 +31,7 @@ function SkillIcon({ iconKey }) {
   );
 }
 
-function SkillGroupCard({ group }) {
+function SkillGroupCard({ group }: { group: SkillGroup; featured?: boolean }) {
   return (
     <article
       className={`skill-card surface-panel relative flex h-full flex-col overflow-hidden p-6 md:p-8`}

@@ -3,12 +3,12 @@ import Reveal from "../ui/Reveal";
 import { skillGroups } from "../../lib/skills";
 import { certificates } from "../../lib/certificates";
 import CertificateCard from "../ui/CertificateCard";
-
 const GROUP_ORDER = ["backend", "AI", "frontend", "tooling", "foundations"];
 
-const groups = GROUP_ORDER.map((id) =>
-  skillGroups.find((group) => group.id === id),
-).filter(Boolean);
+const groups = GROUP_ORDER.flatMap((id) => {
+  const group = skillGroups.find((item) => item.id === id);
+  return group ? [group] : [];
+});
 
 function SkillsPage() {
   return (
