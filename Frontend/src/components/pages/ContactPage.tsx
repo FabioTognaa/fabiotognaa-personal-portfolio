@@ -156,13 +156,9 @@ function ContactPage() {
       setStatus("success");
       setValues({ name: "", email: "", message: "" });
       resetCaptcha();
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "";
+    } catch {
       setStatus("error");
-      setFormError(
-        message ||
-          "Non sono riuscito a inviare il messaggio. Riprova tra poco.",
-      );
+      setFormError("Non sono riuscito a inviare il messaggio. Riprova tra poco.");
       resetCaptcha();
     }
   }

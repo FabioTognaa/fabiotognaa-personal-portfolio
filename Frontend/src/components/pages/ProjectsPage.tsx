@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import Button from "../ui/Button";
 import ProjectsCarousel from "../ui/ProjectsCarousel";
 import Reveal from "../ui/Reveal";
-import { projects, CV_PATH, CV_FILENAME } from "../../lib/projects";
+import { projects } from "../../lib/projects";
+import { CV_PATH, CV_FILENAME } from "../../lib/static-assets";
 
 //*PAGINA PROGETTI
 function ProjectsPage() {

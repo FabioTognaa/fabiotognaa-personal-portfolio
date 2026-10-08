@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
+import ErrorBoundary from "../ui/ErrorBoundary";
 
 function PageFallback() {
   return (
@@ -30,9 +31,11 @@ function PageShell({ className = "" }: { className?: string }) {
       <SiteHeader />
       <main id="main-content" className="flex-1" tabIndex={-1}>
         <Suspense fallback={<PageFallback />}>
-          <div key={location.pathname} className="page-enter">
-            <Outlet />
-          </div>
+          <ErrorBoundary>
+            <div key={location.pathname} className="page-enter">
+              <Outlet />
+            </div>
+          </ErrorBoundary>
         </Suspense>
       </main>
       <SiteFooter />

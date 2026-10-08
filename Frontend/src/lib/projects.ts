@@ -67,5 +67,3 @@ export const projects = [
     link: "",
   },
 ] satisfies Project[];
-
-export { CV_PATH, CV_FILENAME } from "./static-assets";

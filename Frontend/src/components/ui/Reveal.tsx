@@ -8,17 +8,12 @@ import {
   type ReactNode,
 } from "react";
 import { observeReveal } from "../../lib/revealObserver";
-
-function prefersReducedMotion() {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
+import { prefersReducedMotion } from "../../lib/prefersReducedMotion";
 
 type RevealOwnProps<T extends ElementType> = {
   as?: T;
   className?: string;
   delay?: number;
-  once?: boolean;
   children?: ReactNode;
 };
 
@@ -30,7 +25,6 @@ function Reveal<T extends ElementType = "div">({
   children,
   className = "",
   delay = 0,
-  once = true,
   ...props
 }: RevealProps<T>) {
   const Component = (as ?? "div") as ElementType;
@@ -49,13 +43,11 @@ function Reveal<T extends ElementType = "div">({
     unobserve = observeReveal(node, (isIntersecting) => {
       if (isIntersecting) {
         setVisible(true);
-        if (once) unobserve();
-      } else if (!once) {
-        setVisible(false);
+        unobserve();
       }
     });
     return unobserve;
-  }, [once]);
+  }, []);
 
   const style = (delay ? { "--reveal-delay": `${delay}ms` } : undefined) as
     | CSSProperties

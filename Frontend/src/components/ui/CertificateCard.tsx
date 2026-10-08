@@ -5,9 +5,6 @@ function CertificateCard({ certificate }: { certificate: Certificate }) {
     <article className="skill-card surface-panel relative flex h-full flex-col overflow-hidden p-6 md:p-8">
       <header className="skill-card__header relative">
         <h2 className="skill-card__title">{certificate.title}</h2>
-        {certificate.summary && (
-          <p className="skill-card__summary">{certificate.summary}</p>
-        )}
       </header>
 
       <ul

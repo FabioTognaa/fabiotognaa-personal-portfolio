@@ -42,7 +42,6 @@ export type CertificateLink = {
 export type Certificate = {
   id: string;
   title: string;
-  summary?: string;
   links: readonly CertificateLink[];
 };
 

@@ -5,10 +5,14 @@ import { certificates } from "../../lib/certificates";
 import CertificateCard from "../ui/CertificateCard";
 const GROUP_ORDER = ["backend", "AI", "frontend", "tooling", "foundations"];
 
-const groups = GROUP_ORDER.flatMap((id) => {
-  const group = skillGroups.find((item) => item.id === id);
-  return group ? [group] : [];
-});
+// Ordina secondo GROUP_ORDER, ma tiene in coda i gruppi non elencati: un id
+// nuovo aggiunto a skills.ts non sparisce più dalla pagina.
+const orderOf = (id: string) => {
+  const position = GROUP_ORDER.indexOf(id);
+  return position === -1 ? GROUP_ORDER.length : position;
+};
+
+const groups = [...skillGroups].sort((a, b) => orderOf(a.id) - orderOf(b.id));
 
 function SkillsPage() {
   return (
@@ -45,16 +49,16 @@ function SkillsPage() {
       <section
         id="certificati"
         className="section-pad mx-auto max-w-7xl pt-0 xl:max-w-[88rem]"
-        aria-labelledby="skills-heading"
+        aria-labelledby="certifications-heading"
       >
         <Reveal className="skills-intro">
           <div className="skills-intro__head">
-            <h1
-              id="skills-heading"
+            <h2
+              id="certifications-heading"
               className="section-heading mt-3 max-w-[16ch]"
             >
               Certificazioni
-            </h1>
+            </h2>
           </div>
         </Reveal>
         <div className="flex flex-row gap-6 md:mt-24">

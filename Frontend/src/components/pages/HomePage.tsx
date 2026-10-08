@@ -1,5 +1,5 @@
 import Button from "../ui/Button";
-import { CV_PATH, CV_FILENAME } from "../../lib/projects";
+import { CV_PATH, CV_FILENAME } from "../../lib/static-assets";
 import { profileImage } from "../../lib/static-assets";
 
 function HomePage() {

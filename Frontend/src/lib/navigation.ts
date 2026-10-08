@@ -1,4 +1,4 @@
-import { CV_PATH, CV_FILENAME } from "./projects";
+import { CV_PATH, CV_FILENAME } from "./static-assets";
 import type { HeaderCta, NavItem, SocialLink } from "./types";
 
 export const siteNav = [

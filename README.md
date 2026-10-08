@@ -35,7 +35,7 @@ Ecco le tecnologie e gli strumenti utilizzati per realizzare questo progetto:
 Come far girare questo progetto in locale:
 
 **Prerequisiti:**
-Assicurati di avere installato [Node.js](https://nodejs.org/) e [pnpm](https://pnpm.io/) (il repo dichiara `pnpm@10.32.0` in `package.json`).
+Assicurati di avere installato [Node.js](https://nodejs.org/) e [pnpm](https://pnpm.io/) (il repo dichiara `pnpm@11.22.0` in `package.json`).
 
 1.  **Clona il repository:**
 
@@ -85,8 +85,6 @@ pnpm typecheck
 pnpm audit --audit-level high
 ```
 
-La stessa catena gira in GitHub Actions su pull request e push verso `main` tramite `.github/workflows/quality-gate.yml`.
-
 Limiti attuali: il progetto non ha un test framework configurato. Quel controllo non va considerato coperto finché non viene aggiunto esplicitamente.
 
 ## Struttura del Progetto
@@ -125,7 +123,6 @@ Limiti attuali: il progetto non ha un test framework configurato. Quel controllo
 ├── tsconfig.json
 ├── tsconfig.node.json
 ├── eslint.config.js
-├── .github/workflows/quality-gate.yml
 ├── .cursor/                    # agenti, rules e quality gate del pilot
 ├── .prettierrc
 └── vercel.json

@@ -27,7 +27,7 @@ Before closing non-trivial changes, run `pnpm build`, `pnpm lint`, `pnpm typeche
 
 - **Vite config is at repo root** (`vite.config.ts`). `root` is `Frontend/`, `publicDir` is `Frontend/public/`, `outDir` is repo-root `dist/`, `envDir` is repo root
 - **Entry:** `Frontend/index.html` → `Frontend/src/main.tsx` → `Frontend/src/components/App.tsx`
-- **7 lazy routes** in `App.tsx`: `/`, `/about`, `/studies`, `/skills`, `/contact`, `/projects`, `*` (PageNotFound)
+- **6 lazy routes** in `App.tsx`: `/`, `/about`, `/studies`, `/skills`, `/contact`, `/projects`. Unknown paths are not routed; Vercel returns its default 404 for them
 - All routes render inside **PageShell** (`SiteHeader` + skip link + `<Suspense>` around `<Outlet>` + `SiteFooter`), `<ScrollToTop>` on nav
 - **Page copy/data** lives in `Frontend/src/lib/` (`about.ts`, `experience.ts`, `projects.ts`, `skills.ts`, `study.ts`, `navigation.ts`) — edit those modules, not hardcoded strings in page components
 - **CSS:** Tailwind v4 `@theme` custom tokens + component classes in `@layer components` inside `Frontend/src/index.css`

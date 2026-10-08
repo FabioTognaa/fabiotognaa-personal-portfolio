@@ -7,6 +7,7 @@ import type { KeyboardEvent } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import ProjectCard from "./ProjectCard";
 import type { Project } from "../../lib/types";
+import { prefersReducedMotion } from "../../lib/prefersReducedMotion";
 
 // ID univoco dell'hint di accessibilità per chi usa il carosello progetti
 const HINT_ID = "projects-carousel-hint";
@@ -20,12 +21,6 @@ const VISIBILITY_THRESHOLDS = Array.from(
   { length: 11 },
   (_, step) => step * 0.1,
 );
-
-//se si preferisce ridurre l'animazione
-function prefersReducedMotion() {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
 
 //funzione per selezionare una slide
 function getSlides(track: ParentNode) {
