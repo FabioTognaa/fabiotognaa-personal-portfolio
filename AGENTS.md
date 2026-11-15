@@ -20,8 +20,6 @@ pnpm 11 · **No test framework** · Deploys via Vercel
 | Deploy prod    | `pnpm deploy`         |
 | Deploy preview | `pnpm deploy:preview` |
 
-Formatting uses Prettier with `prettier-plugin-tailwindcss` (no dedicated script — run `prettier --write .` yourself).
-
 Before closing non-trivial changes, run `pnpm build`, `pnpm lint`, `pnpm typecheck`, and `pnpm audit --audit-level high`. There is no CI workflow in the repo.
 
 ## Project structure

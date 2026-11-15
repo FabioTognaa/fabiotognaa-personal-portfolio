@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://docs.astro.build/en/reference/configuration-reference/
 export default defineConfig({
   site: "https://fabiotognaa-personal-portfolio.vercel.app",
+  trailingSlash: "never",
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],

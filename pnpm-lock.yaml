@@ -33,9 +33,6 @@ importers:
       '@hcaptcha/react-hcaptcha':
         specifier: ^2.0.2
         version: 2.0.2
-      '@headlessui/react':
-        specifier: ^2.2.9
-        version: 2.2.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@heroicons/react':
         specifier: ^2.2.0
         version: 2.2.0(react@19.2.4)
@@ -82,12 +79,6 @@ importers:
       globals:
         specifier: ^16.5.0
         version: 16.5.0
-      prettier:
-        specifier: ^3.8.1
-        version: 3.8.1
-      prettier-plugin-tailwindcss:
-        specifier: ^0.7.2
-        version: 0.7.2(prettier@3.8.1)
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
@@ -822,27 +813,6 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@floating-ui/core@1.7.5':
-    resolution: {integrity: sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ==}
-
-  '@floating-ui/dom@1.7.6':
-    resolution: {integrity: sha512-9gZSAI5XM36880PPMm//9dfiEngYoC6Am2izES1FF406YFsjvyBMmeJ2g4SAju3xWwtuynNRFL2s9hgxpLI5SQ==}
-
-  '@floating-ui/react-dom@2.1.8':
-    resolution: {integrity: sha512-cC52bHwM/n/CxS87FH0yWdngEZrjdtLW/qVruo68qg+prK7ZQ4YGdut2GyDVpoGeAYe/h899rVeOVm6Oi40k2A==}
-    peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
-
-  '@floating-ui/react@0.26.28':
-    resolution: {integrity: sha512-yORQuuAtVpiRjpMhdc0wJj06b9JFjrYF4qp96j++v2NBpbi6SEGF7donUJ3TMieerQ6qVkAv1tgr7L4r5roTqw==}
-    peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
-
-  '@floating-ui/utils@0.2.11':
-    resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
-
   '@fontsource-variable/bricolage-grotesque@5.2.10':
     resolution: {integrity: sha512-5EDsCqgGpKVcJWE4sg9ydli+t5WM97mISYw5lla/Ev4z71FwXh1oN0YUU8xjkRW9+wBCGD9R+ntAvI8G4bUFJg==}
 
@@ -851,13 +821,6 @@ packages:
 
   '@hcaptcha/react-hcaptcha@2.0.2':
     resolution: {integrity: sha512-VbuH6VJ6m3BHmVBHs0fL9t+suZd7PQEqCzqL2BiUbBvbHI3XfvSgdiug2QiEPN8zskbPTIV/FfGPF53JCckrow==}
-
-  '@headlessui/react@2.2.9':
-    resolution: {integrity: sha512-Mb+Un58gwBn0/yWZfyrCh0TJyurtT+dETj7YHleylHk5od3dv2XqETPGWMyQ5/7sYN7oWdyM1u9MvC0OC8UmzQ==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: ^18 || ^19 || ^19.0.0-rc
-      react-dom: ^18 || ^19 || ^19.0.0-rc
 
   '@heroicons/react@2.2.0':
     resolution: {integrity: sha512-LMcepvRaS9LYHJGsF0zzmgKCUim/X3N/DQKc4jepAXJ7l8QxJ1PmxJzqplF2Z3FE4PqBAIGyJAQ/w4B5dsqbtQ==}
@@ -1320,43 +1283,6 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@react-aria/focus@3.21.5':
-    resolution: {integrity: sha512-V18fwCyf8zqgJdpLQeDU5ZRNd9TeOfBbhLgmX77Zr5ae9XwaoJ1R3SFJG1wCJX60t34AW+aLZSEEK+saQElf3Q==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-
-  '@react-aria/interactions@3.27.1':
-    resolution: {integrity: sha512-M3wLpTTmDflI0QGNK0PJNUaBXXfeBXue8ZxLMngfc1piHNiH4G5lUvWd9W14XVbqrSCVY8i8DfGrNYpyyZu0tw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-
-  '@react-aria/ssr@3.9.10':
-    resolution: {integrity: sha512-hvTm77Pf+pMBhuBm760Li0BVIO38jv1IBws1xFm1NoL26PU+fe+FMW5+VZWyANR6nYL65joaJKZqOdTQMkO9IQ==}
-    engines: {node: '>= 12'}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-
-  '@react-aria/utils@3.33.1':
-    resolution: {integrity: sha512-kIx1Sj6bbAT0pdqCegHuPanR9zrLn5zMRiM7LN12rgRf55S19ptd9g3ncahArifYTRkfEU9VIn+q0HjfMqS9/w==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-
-  '@react-stately/flags@3.1.2':
-    resolution: {integrity: sha512-2HjFcZx1MyQXoPqcBGALwWWmgFVUk2TuKVIQxCbRq7fPyWXIl6VHcakCLurdtYC2Iks7zizvz0Idv48MQ38DWg==}
-
-  '@react-stately/utils@3.11.0':
-    resolution: {integrity: sha512-8LZpYowJ9eZmmYLpudbo/eclIRnbhWIJZ994ncmlKlouNzKohtM8qTC6B1w1pwUbiwGdUoyzLuQbeaIor5Dvcw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-
-  '@react-types/shared@3.33.1':
-    resolution: {integrity: sha512-oJHtjvLG43VjwemQDadlR5g/8VepK56B/xKO2XORPHt9zlW6IZs3tZrYlvH29BMvoqC7RtE7E5UjgbnbFtDGag==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-
   '@renovatebot/pep440@4.2.1':
     resolution: {integrity: sha512-2FK1hF93Fuf1laSdfiEmJvSJPVIDHEUTz68D3Fi9s0IZrrpaEcj6pTFBTbYvsgC5du4ogrtf5re7yMMvrKNgkw==}
     engines: {node: ^20.9.0 || ^22.11.0 || ^24, pnpm: ^10.0.0}
@@ -1730,9 +1656,6 @@ packages:
   '@sinclair/typebox@0.25.24':
     resolution: {integrity: sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==}
 
-  '@swc/helpers@0.5.19':
-    resolution: {integrity: sha512-QamiFeIK3txNjgUTNppE6MiG3p7TdninpZu0E0PbqVh1a9FNLT2FRhisaa4NcaX52XVhA5l7Pk58Ft7Sqi/2sA==}
-
   '@tailwindcss/node@4.2.2':
     resolution: {integrity: sha512-pXS+wJ2gZpVXqFaUEjojq7jzMpTGf8rU6ipJz5ovJV6PUGmlJ+jvIwGrzdHdQ80Sg+wmQxUFuoW1UAAwHNEdFA==}
 
@@ -1826,15 +1749,6 @@ packages:
     resolution: {integrity: sha512-mEiF5HO1QqCLXoNEfXVA1Tzo+cYsrqV7w9Juj2wdUFyW07JRenqMG225MvPwr3ZD9N1bFQj46X7r33iHxLUW0w==}
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7 || ^8
-
-  '@tanstack/react-virtual@3.13.23':
-    resolution: {integrity: sha512-XnMRnHQ23piOVj2bzJqHrRrLg4r+F86fuBcwteKfbIjJrtGxb4z7tIvPVAe4B+4UVwo9G4Giuz5fmapcrnZ0OQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-
-  '@tanstack/virtual-core@3.13.23':
-    resolution: {integrity: sha512-zSz2Z2HNyLjCplANTDyl3BcdQJc2k1+yyFoKhNRmCr7V7dY8o8q5m8uFTI1/Pg1kL+Hgrz6u3Xo6eFUB7l66cg==}
 
   '@tootallnate/once@2.0.0':
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
@@ -3472,61 +3386,6 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier-plugin-tailwindcss@0.7.2:
-    resolution: {integrity: sha512-LkphyK3Fw+q2HdMOoiEHWf93fNtYJwfamoKPl7UwtjFQdei/iIBoX11G6j706FzN3ymX9mPVi97qIY8328vdnA==}
-    engines: {node: '>=20.19'}
-    peerDependencies:
-      '@ianvs/prettier-plugin-sort-imports': '*'
-      '@prettier/plugin-hermes': '*'
-      '@prettier/plugin-oxc': '*'
-      '@prettier/plugin-pug': '*'
-      '@shopify/prettier-plugin-liquid': '*'
-      '@trivago/prettier-plugin-sort-imports': '*'
-      '@zackad/prettier-plugin-twig': '*'
-      prettier: ^3.0
-      prettier-plugin-astro: '*'
-      prettier-plugin-css-order: '*'
-      prettier-plugin-jsdoc: '*'
-      prettier-plugin-marko: '*'
-      prettier-plugin-multiline-arrays: '*'
-      prettier-plugin-organize-attributes: '*'
-      prettier-plugin-organize-imports: '*'
-      prettier-plugin-sort-imports: '*'
-      prettier-plugin-svelte: '*'
-    peerDependenciesMeta:
-      '@ianvs/prettier-plugin-sort-imports':
-        optional: true
-      '@prettier/plugin-hermes':
-        optional: true
-      '@prettier/plugin-oxc':
-        optional: true
-      '@prettier/plugin-pug':
-        optional: true
-      '@shopify/prettier-plugin-liquid':
-        optional: true
-      '@trivago/prettier-plugin-sort-imports':
-        optional: true
-      '@zackad/prettier-plugin-twig':
-        optional: true
-      prettier-plugin-astro:
-        optional: true
-      prettier-plugin-css-order:
-        optional: true
-      prettier-plugin-jsdoc:
-        optional: true
-      prettier-plugin-marko:
-        optional: true
-      prettier-plugin-multiline-arrays:
-        optional: true
-      prettier-plugin-organize-attributes:
-        optional: true
-      prettier-plugin-organize-imports:
-        optional: true
-      prettier-plugin-sort-imports:
-        optional: true
-      prettier-plugin-svelte:
-        optional: true
-
   prettier@3.8.1:
     resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
     engines: {node: '>=14'}
@@ -3813,9 +3672,6 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  tabbable@6.4.0:
-    resolution: {integrity: sha512-05PUHKSNE8ou2dwIxTngl4EzcnsCDZGJ/iCLtDflR/SHB/ny14rXc+qU5P4mG9JkusiV7EivzY9Mhm55AzAvCg==}
-
   tailwindcss@4.2.2:
     resolution: {integrity: sha512-KWBIxs1Xb6NoLdMVqhbhgwZf2PGBpPEiwOqgI4pFIYbNTfBXiKYyWoTsXgBQ9WFg/OlhnvHaY+AEpW7wSmFo2Q==}
 
@@ -4046,11 +3902,6 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
-
-  use-sync-external-store@1.6.0:
-    resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   vercel@54.21.1:
     resolution: {integrity: sha512-GDs3FqEwZJHOyrzUXMjQBg8Fd1qOKOBuzE1exrhKq6hHBaHHuGnfvfHzRpm7j9CC+SjnRr/CY30tUNyU28gN4A==}
@@ -4987,46 +4838,11 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@floating-ui/core@1.7.5':
-    dependencies:
-      '@floating-ui/utils': 0.2.11
-
-  '@floating-ui/dom@1.7.6':
-    dependencies:
-      '@floating-ui/core': 1.7.5
-      '@floating-ui/utils': 0.2.11
-
-  '@floating-ui/react-dom@2.1.8(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
-    dependencies:
-      '@floating-ui/dom': 1.7.6
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-
-  '@floating-ui/react@0.26.28(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
-    dependencies:
-      '@floating-ui/react-dom': 2.1.8(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@floating-ui/utils': 0.2.11
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      tabbable: 6.4.0
-
-  '@floating-ui/utils@0.2.11': {}
-
   '@fontsource-variable/bricolage-grotesque@5.2.10': {}
 
   '@fontsource/hanken-grotesk@5.2.8': {}
 
   '@hcaptcha/react-hcaptcha@2.0.2': {}
-
-  '@headlessui/react@2.2.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
-    dependencies:
-      '@floating-ui/react': 0.26.28(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-aria/focus': 3.21.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-aria/interactions': 3.27.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@tanstack/react-virtual': 3.13.23(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      use-sync-external-store: 1.6.0(react@19.2.4)
 
   '@heroicons/react@2.2.0(react@19.2.4)':
     dependencies:
@@ -5356,55 +5172,6 @@ snapshots:
   '@oxc-transform/binding-win32-x64-msvc@0.111.0':
     optional: true
 
-  '@react-aria/focus@3.21.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
-    dependencies:
-      '@react-aria/interactions': 3.27.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-aria/utils': 3.33.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-types/shared': 3.33.1(react@19.2.4)
-      '@swc/helpers': 0.5.19
-      clsx: 2.1.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-
-  '@react-aria/interactions@3.27.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
-    dependencies:
-      '@react-aria/ssr': 3.9.10(react@19.2.4)
-      '@react-aria/utils': 3.33.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-stately/flags': 3.1.2
-      '@react-types/shared': 3.33.1(react@19.2.4)
-      '@swc/helpers': 0.5.19
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-
-  '@react-aria/ssr@3.9.10(react@19.2.4)':
-    dependencies:
-      '@swc/helpers': 0.5.19
-      react: 19.2.4
-
-  '@react-aria/utils@3.33.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
-    dependencies:
-      '@react-aria/ssr': 3.9.10(react@19.2.4)
-      '@react-stately/flags': 3.1.2
-      '@react-stately/utils': 3.11.0(react@19.2.4)
-      '@react-types/shared': 3.33.1(react@19.2.4)
-      '@swc/helpers': 0.5.19
-      clsx: 2.1.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-
-  '@react-stately/flags@3.1.2':
-    dependencies:
-      '@swc/helpers': 0.5.19
-
-  '@react-stately/utils@3.11.0(react@19.2.4)':
-    dependencies:
-      '@swc/helpers': 0.5.19
-      react: 19.2.4
-
-  '@react-types/shared@3.33.1(react@19.2.4)':
-    dependencies:
-      react: 19.2.4
-
   '@renovatebot/pep440@4.2.1': {}
 
   '@rolldown/binding-android-arm-eabi@1.2.19':
@@ -5632,10 +5399,6 @@ snapshots:
 
   '@sinclair/typebox@0.25.24': {}
 
-  '@swc/helpers@0.5.19':
-    dependencies:
-      tslib: 2.8.1
-
   '@tailwindcss/node@4.2.2':
     dependencies:
       '@jridgewell/remapping': 2.3.5
@@ -5703,14 +5466,6 @@ snapshots:
       '@tailwindcss/oxide': 4.2.2
       tailwindcss: 4.2.2
       vite: 8.3.8(@types/node@26.6.4)(esbuild@0.27.4)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.9.1)
-
-  '@tanstack/react-virtual@3.13.23(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
-    dependencies:
-      '@tanstack/virtual-core': 3.13.23
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-
-  '@tanstack/virtual-core@3.13.23': {}
 
   '@tootallnate/once@2.0.0': {}
 
@@ -7582,10 +7337,6 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-tailwindcss@0.7.2(prettier@3.8.1):
-    dependencies:
-      prettier: 3.8.1
-
   prettier@3.8.1: {}
 
   pretty-ms@7.0.1:
@@ -7961,8 +7712,6 @@ snapshots:
       picocolors: 1.1.1
       sax: 1.6.1
 
-  tabbable@6.4.0: {}
-
   tailwindcss@4.2.2: {}
 
   tapable@2.3.0: {}
@@ -8148,10 +7897,6 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
-
-  use-sync-external-store@1.6.0(react@19.2.4):
-    dependencies:
-      react: 19.2.4
 
   vercel@54.21.1(@emnapi/core@2.0.0-beta.2)(@emnapi/runtime@2.0.0-beta.2)(rollup@4.59.0)(supports-color@7.2.0):
     dependencies:

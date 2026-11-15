@@ -1,0 +1,81 @@
+---
+import { siteNav, headerCta } from "../../lib/navigation";
+---
+
+<button
+  type="button"
+  class="touch-target text-ink rounded-xl md:hidden"
+  data-menu-open
+  aria-controls="mobile-menu"
+  aria-expanded="false"
+>
+  <span class="sr-only">Apri menu</span>
+  <svg
+    class="h-7 w-7"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    aria-hidden="true"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+  </svg>
+</button>
+
+<dialog
+  id="mobile-menu"
+  class="mobile-drawer bg-surface shadow-2xl"
+  aria-labelledby="mobile-menu-title"
+>
+  <div class="border-line/70 flex items-center justify-between border-b px-6 py-4">
+    <h2 id="mobile-menu-title" class="font-display text-ink text-lg font-bold">Menu</h2>
+    <button type="button" class="touch-target text-ink rounded-xl" data-menu-close>
+      <span class="sr-only">Chiudi menu</span>
+      <svg
+        class="h-6 w-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        aria-hidden="true"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <nav
+    class="flex flex-1 flex-col gap-1 overflow-y-auto overscroll-contain px-4 py-6"
+    aria-label="Navigazione mobile"
+  >
+    {siteNav.map((item) => <a href={item.href} class="drawer-link">{item.label}</a>)}
+    <a href={headerCta.href} download={headerCta.download} class="btn-primary mt-4 w-full">
+      {headerCta.label}
+    </a>
+  </nav>
+</dialog>
+
+<script>
+  // <dialog> nativo: focus trap, Esc e backdrop li gestisce il browser
+  const drawer = document.querySelector<HTMLDialogElement>("#mobile-menu");
+  const openButton = document.querySelector<HTMLButtonElement>("[data-menu-open]");
+
+  if (drawer && openButton) {
+    openButton.addEventListener("click", () => {
+      openButton.setAttribute("aria-expanded", "true");
+      drawer.showModal();
+    });
+
+    drawer.addEventListener("close", () => {
+      openButton.setAttribute("aria-expanded", "false");
+    });
+
+    for (const el of drawer.querySelectorAll("[data-menu-close], a")) {
+      el.addEventListener("click", () => drawer.close());
+    }
+  }
+</script>

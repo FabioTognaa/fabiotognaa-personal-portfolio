@@ -235,10 +235,25 @@ h3 {
     @apply border-line bg-surface rounded-2xl border;
   }
 
+  /* drawer di navigazione mobile: <dialog> nativo, ancorato a destra */
   .mobile-drawer {
-    max-height: 100dvh;
+    @apply fixed inset-y-0 right-0 m-0 w-screen max-w-xs border-0 p-0;
+    height: 100dvh;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
+    animation: drawer-in var(--duration-panel) var(--ease-fluid);
+  }
+
+  .mobile-drawer::backdrop {
+    background: oklch(16% 0.05 265 / 0.4);
+    backdrop-filter: blur(4px);
+    animation: fade var(--duration-panel) var(--ease-fluid);
+  }
+
+  @keyframes drawer-in {
+    from {
+      transform: translate3d(100%, 0, 0);
+    }
   }
 
   .motion-lift:hover {
@@ -293,7 +308,8 @@ h3 {
     animation-delay: 420ms;
   }
 
-  .reveal-scroll {
+  /* lo stato nascosto esiste solo se il layout ha confermato che il JS gira */
+  .js .reveal-scroll {
     --reveal-delay: 0ms;
     opacity: 0;
     transform: translate3d(0, 26px, 0);
@@ -302,17 +318,9 @@ h3 {
       transform 760ms var(--ease-fluid) var(--reveal-delay);
   }
 
-  .reveal-scroll[data-visible] {
+  .js .reveal-scroll[data-visible] {
     opacity: 1;
     transform: translate3d(0, 0, 0);
-  }
-
-  /* senza JS (o prima che il layout script giri) il contenuto deve restare leggibile */
-  @media (scripting: none) {
-    .reveal-scroll {
-      opacity: 1;
-      transform: none;
-    }
   }
 
   .page-enter {
@@ -360,14 +368,6 @@ h3 {
     }
   }
 
-  .drawer-backdrop-enter {
-    transition: opacity var(--duration-panel) var(--ease-fluid);
-  }
-
-  .drawer-panel-enter {
-    transition: transform var(--duration-panel) var(--ease-fluid);
-  }
-
   .skills-intro,
   .projects-intro {
     display: grid;
@@ -380,10 +380,6 @@ h3 {
       grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
       align-items: end;
       gap: clamp(2rem, 4.5vw, 4.5rem);
-    }
-
-    .projects-intro__copy {
-      padding-bottom: 0.125rem;
     }
   }
 
@@ -696,7 +692,7 @@ h3 {
     transform: none;
   }
 
-  .reveal-scroll {
+  .js .reveal-scroll {
     opacity: 1;
     transform: none;
     transition: none;
@@ -706,15 +702,18 @@ h3 {
     animation: none;
   }
 
+  .mobile-drawer,
+  .mobile-drawer::backdrop {
+    animation: none;
+  }
+
   .motion-lift,
   .motion-field,
   .link-arrow,
   .motion-link,
   .nav-link,
   .drawer-link,
-  .site-header,
-  .drawer-backdrop-enter,
-  .drawer-panel-enter {
+  .site-header {
     transition: none;
   }
 

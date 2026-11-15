@@ -197,6 +197,7 @@ function ContactPage() {
             className="motion-field border-line text-ink w-full cursor-pointer rounded-xl border px-4 py-3 text-base sm:text-sm"
             placeholder="Il tuo nome"
             autoComplete="name"
+            maxLength={100}
             aria-invalid={fieldErrors.name ? "true" : undefined}
             aria-describedby={
               fieldErrors.name ? "contact-name-error" : undefined
@@ -221,6 +222,7 @@ function ContactPage() {
             className="motion-field border-line text-ink w-full cursor-pointer rounded-xl border px-4 py-3 text-base sm:text-sm"
             placeholder="nome@email.com"
             autoComplete="email"
+            maxLength={254}
             aria-invalid={fieldErrors.email ? "true" : undefined}
             aria-describedby={
               fieldErrors.email ? "contact-email-error" : undefined
@@ -242,6 +244,7 @@ function ContactPage() {
             value={values.message}
             onChange={(e) => updateField("message", e.target.value)}
             rows={6}
+            maxLength={2000}
             className="motion-field border-line text-ink w-full cursor-pointer resize-none rounded-xl border px-4 py-3 text-base sm:text-sm"
             placeholder="Di cosa vuoi parlare?"
             aria-invalid={fieldErrors.message ? "true" : undefined}

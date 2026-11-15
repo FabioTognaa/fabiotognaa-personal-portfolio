@@ -124,7 +124,6 @@ Limiti attuali: il progetto non ha un test framework configurato. Quel controllo
 ├── tsconfig.node.json
 ├── eslint.config.js
 ├── .cursor/                    # agenti, rules e quality gate del pilot
-├── .prettierrc
 └── vercel.json
 ```
 
