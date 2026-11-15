@@ -1,16 +1,13 @@
-import { useMemo, useRef, useState, type FormEvent } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import Button from "../ui/Button";
 import Reveal from "../ui/Reveal";
 import SectionShapes from "../ui/SectionShapes";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
 import type {
   ContactField,
   ContactFieldErrors,
   ContactFormValues,
   ContactStatus,
 } from "../../lib/types";
-
-const HCAPTCHA_SITEKEY = "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
 
 type Web3FormsResponse = {
   success?: boolean;
@@ -55,11 +52,9 @@ function FieldError({ id, message }: { id: string; message?: string }) {
 }
 
 function ContactPage() {
-  const captchaRef = useRef<HCaptcha>(null);
   const [status, setStatus] = useState<ContactStatus>("idle");
   const [formError, setFormError] = useState("");
   const [fieldErrors, setFieldErrors] = useState<ContactFieldErrors>({});
-  const [captchaToken, setCaptchaToken] = useState("");
   const [values, setValues] = useState<ContactFormValues>({
     name: "",
     email: "",
@@ -70,19 +65,8 @@ function ContactPage() {
     const nameOk = values.name.trim().length > 0;
     const emailOk = values.email.trim().length > 0;
     const msgOk = values.message.trim().length > 0;
-    return (
-      nameOk &&
-      emailOk &&
-      msgOk &&
-      captchaToken.length > 0 &&
-      status !== "sending"
-    );
-  }, [status, values, captchaToken]);
-
-  function resetCaptcha() {
-    setCaptchaToken("");
-    captchaRef.current?.resetCaptcha();
-  }
+    return nameOk && emailOk && msgOk && status !== "sending";
+  }, [status, values]);
 
   function clearFieldError(field: ContactField) {
     setFieldErrors((current) => {
@@ -121,17 +105,9 @@ function ContactPage() {
       return;
     }
 
-    if (!captchaToken) {
-      setFormError("Completa il captcha prima di inviare.");
-      setStatus("error");
-      return;
-    }
-
     const formData = new FormData(e.currentTarget);
     // Access key Web3Forms: pubblica by design (non è una secret API key).
     formData.set("access_key", "358268f4-393b-498c-a153-6f078e3737b4");
-    // set() sovrascrive l'eventuale textarea vuota che il widget hCaptcha mette nel form
-    formData.set("h-captcha-response", captchaToken);
 
     setFieldErrors({});
     setStatus("sending");
@@ -150,19 +126,16 @@ function ContactPage() {
           data.message ||
             "Non sono riuscito a inviare il messaggio. Riprova tra poco.",
         );
-        resetCaptcha();
         return;
       }
 
       setStatus("success");
       setValues({ name: "", email: "", message: "" });
-      resetCaptcha();
     } catch {
       setStatus("error");
       setFormError(
         "Non sono riuscito a inviare il messaggio. Riprova tra poco.",
       );
-      resetCaptcha();
     }
   }
 
@@ -263,21 +236,14 @@ function ContactPage() {
             />
           </div>
 
-          <HCaptcha
-            ref={captchaRef}
-            sitekey={HCAPTCHA_SITEKEY}
-            reCaptchaCompat={false}
-            onVerify={(token) => {
-              setCaptchaToken(token);
-              if (formError) {
-                setFormError("");
-              }
-              if (status === "error") {
-                setStatus("idle");
-              }
-            }}
-            onExpire={resetCaptcha}
-            onError={resetCaptcha}
+          {/* Honeypot Web3Forms: se un bot lo spunta, la richiesta viene scartata. */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
           />
 
           <button

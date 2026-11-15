@@ -5,7 +5,7 @@
 Astro 7 (output statico) · React 19 come **isole** · TypeScript · Tailwind CSS v4 ·
 pnpm 11 · **No test framework** · Deploys via Vercel
 
-`package.json` pins `packageManager`: `pnpm@11.22.0`. Contact form is **Web3Forms + hCaptcha** (no backend, no Supabase).
+`package.json` pins `packageManager`: `pnpm@11.22.0`. Contact form is **Web3Forms** (honeypot `botcheck`, no captcha, no backend, no Supabase).
 
 ## Commands
 
@@ -33,7 +33,7 @@ Before closing non-trivial changes, run `pnpm build`, `pnpm lint`, `pnpm typeche
 - **CSS:** Tailwind v4 `@theme` custom tokens + component classes in `@layer components` inside `src/index.css`
 - **Static assets** (images, CV PDF, logos) are centralized via `src/lib/static-assets.ts` — use that module, not raw paths. Skill icons are static URLs from `skill-icons.ts` (`?url` imports), rendered by `LazySkillIcon` with native `loading="lazy"`
 - **`Reveal`** adds the `data-reveal` attribute and the class `reveal-scroll`; the layout script adds `data-visible`. Do not add a class via JS to React-rendered nodes: hydration would fight it
-- **`vercel.json`** sets only security headers (no rewrites: every route is a real file). CSP allows `'unsafe-inline'` scripts because Astro inlines its hydration bootstrapper — keep hCaptcha/Web3Forms origins in sync
+- **`vercel.json`** sets only security headers (no rewrites: every route is a real file). CSP allows `'unsafe-inline'` scripts because Astro inlines its hydration bootstrapper — keep Web3Forms origins in sync
 - **Fonts:** `@fontsource-variable/bricolage-grotesque` + `@fontsource/hanken-grotesk`, imported in `BaseLayout.astro`
 - **pnpm-workspace.yaml** pins transitive security overrides; keep it when bumping Vercel/CLI deps
 
@@ -47,4 +47,4 @@ Register default: **brand** (personal portfolio; design is the product).
 ## Notes
 
 - There is no CI and no pre-commit hooks. Typecheck is `pnpm typecheck` (`astro check`).
-- Contact keys (Web3Forms access key, hCaptcha sitekey) are public by design and live in `ContactPage.tsx`. Do not move them to a backend-style secret.
+- Contact key (Web3Forms access key) is public by design and lives in `ContactPage.tsx`. Do not move it to a backend-style secret.

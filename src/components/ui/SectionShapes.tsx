@@ -42,10 +42,11 @@ const VARIANTS = {
 
 /** Forme geometriche decorative in filigrana: solo estetica, niente semantica. */
 function SectionShapes({ variant = 1 }: { variant?: 1 | 2 | 3 | 4 }) {
+  // Su schermi stretti il layer viene scalato verso il centro per non finire fuori dai bordi.
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 hidden overflow-hidden md:block"
+      className="pointer-events-none absolute inset-0 origin-center scale-[0.62] overflow-hidden sm:scale-80 md:scale-100"
     >
       {VARIANTS[variant].map((className) => (
         <div key={className} className={className} />
