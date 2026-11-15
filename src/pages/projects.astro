@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectsCarousel from "../components/ui/ProjectsCarousel";
+import SectionShapes from "../components/ui/SectionShapes";
 import { projects } from "../lib/projects";
 import { CV_PATH, CV_FILENAME } from "../lib/static-assets";
 ---
@@ -11,10 +12,11 @@ import { CV_PATH, CV_FILENAME } from "../lib/static-assets";
 >
   <section
     id="progetti"
-    class="section-pad scroll-mt-header mx-auto max-w-7xl xl:max-w-[88rem]"
+    class="section-pad scroll-mt-header relative mx-auto max-w-7xl overflow-hidden xl:max-w-[88rem]"
     aria-labelledby="projects-heading"
   >
-    <div class="projects-intro" data-reveal>
+    <SectionShapes variant={3} />
+    <div class="projects-intro relative" data-reveal>
       <div class="projects-intro__head">
         <p class="section-label">Progetti</p>
         <h1 id="projects-heading" class="section-heading mt-3 max-w-[16ch]">
@@ -25,7 +27,7 @@ import { CV_PATH, CV_FILENAME } from "../lib/static-assets";
 
     {
       projects.length === 0 ? (
-        <div class="reveal-scroll" data-reveal style="--reveal-delay: 80ms">
+        <div class="reveal-scroll relative" data-reveal style="--reveal-delay: 80ms">
           <div class="projects-empty surface-panel">
             <p class="text-ink-muted text-lg">
               Nessun progetto pubblicato al momento.
@@ -41,13 +43,13 @@ import { CV_PATH, CV_FILENAME } from "../lib/static-assets";
           </div>
         </div>
       ) : (
-        <div class="projects-carousel-wrap reveal-scroll" data-reveal style="--reveal-delay: 80ms">
+        <div class="projects-carousel-wrap reveal-scroll relative" data-reveal style="--reveal-delay: 80ms">
           <ProjectsCarousel client:visible projects={projects} />
         </div>
       )
     }
 
-    <footer class="projects-footnote reveal-scroll" data-reveal style="--reveal-delay: 200ms">
+    <footer class="projects-footnote reveal-scroll relative" data-reveal style="--reveal-delay: 200ms">
       <p class="text-ink-muted text-sm leading-relaxed md:text-base">
         Altri progetti in arrivo.{" "}
         <a

@@ -12,7 +12,7 @@ function LazySkillIcon({ iconKey }: { iconKey?: string }) {
 
   return (
     <span
-      className={`inline-flex shrink-0 items-center justify-center opacity-80 ${isPhp ? "h-[1.125rem] w-[1.125rem]" : "h-3.5 w-3.5"}`}
+      className={`inline-flex shrink-0 items-center justify-center ${isPhp ? "h-[1.125rem] w-[1.125rem]" : "h-3.5 w-3.5"}`}
       aria-hidden
     >
       <img

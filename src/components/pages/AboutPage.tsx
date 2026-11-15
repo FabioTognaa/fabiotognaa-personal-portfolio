@@ -1,4 +1,5 @@
 import Reveal from "../ui/Reveal";
+import SectionShapes from "../ui/SectionShapes";
 import { DIRECTIONS } from "../../lib/about";
 
 function AboutQuote({
@@ -27,10 +28,11 @@ function AboutPage() {
   return (
     <section
       id="about"
-      className="section-pad section-pad--after-hero scroll-mt-header mx-auto max-w-7xl"
+      className="section-pad section-pad--after-hero scroll-mt-header relative mx-auto max-w-7xl overflow-hidden"
       aria-labelledby="about-heading"
     >
-      <Reveal>
+      <SectionShapes variant={4} />
+      <Reveal className="relative">
         <p className="section-label">Chi sono</p>
         <h1
           id="about-heading"
@@ -40,7 +42,7 @@ function AboutPage() {
         </h1>
       </Reveal>
 
-      <div className="about-pairs">
+      <div className="about-pairs relative">
         <div className="about-row">
           <AboutQuote
             quote="La Rivoluzione Umana di un singolo individuo condurrà al cambiamento nel destino dell'umanità"

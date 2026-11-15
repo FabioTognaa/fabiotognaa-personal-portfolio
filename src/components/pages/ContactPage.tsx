@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState, type FormEvent } from "react";
 import Button from "../ui/Button";
 import Reveal from "../ui/Reveal";
+import SectionShapes from "../ui/SectionShapes";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import type {
   ContactField,
@@ -158,156 +159,161 @@ function ContactPage() {
       resetCaptcha();
     } catch {
       setStatus("error");
-      setFormError("Non sono riuscito a inviare il messaggio. Riprova tra poco.");
+      setFormError(
+        "Non sono riuscito a inviare il messaggio. Riprova tra poco.",
+      );
       resetCaptcha();
     }
   }
 
   return (
-    <div className="section-pad mx-auto max-w-xl">
-      <Reveal>
-        <p className="section-label">Contatto</p>
-        <h1 className="section-heading mt-3">Parliamone</h1>
-        <p className="prose-body mt-4">
-          Opportunità di stage, collaborazioni o domande sul mio percorso:
-          rispondo appena possibile.
-        </p>
-      </Reveal>
+    <div className="section-pad relative overflow-hidden">
+      <SectionShapes variant={1} />
+      <div className="relative mx-auto max-w-xl">
+        <Reveal>
+          <p className="section-label">Contatto</p>
+          <h1 className="section-heading mt-3">Parliamone</h1>
+          <p className="prose-body mt-4">
+            Opportunità di stage, collaborazioni o domande sul mio percorso:
+            rispondo appena possibile.
+          </p>
+        </Reveal>
 
-      <Reveal
-        as="form"
-        className="surface-panel mt-10 space-y-5 p-6 md:p-8"
-        delay={120}
-        onSubmit={onSubmit}
-        noValidate
-      >
-        <div>
-          <label
-            htmlFor="contact-name"
-            className="text-ink mb-1.5 block text-sm font-semibold"
-          >
-            Nome
-          </label>
-          <input
-            id="contact-name"
-            name="name"
-            value={values.name}
-            onChange={(e) => updateField("name", e.target.value)}
-            type="text"
-            className="motion-field border-line text-ink w-full cursor-pointer rounded-xl border px-4 py-3 text-base sm:text-sm"
-            placeholder="Il tuo nome"
-            autoComplete="name"
-            maxLength={100}
-            aria-invalid={fieldErrors.name ? "true" : undefined}
-            aria-describedby={
-              fieldErrors.name ? "contact-name-error" : undefined
-            }
-          />
-          <FieldError id="contact-name-error" message={fieldErrors.name} />
-        </div>
-
-        <div>
-          <label
-            htmlFor="contact-email"
-            className="text-ink mb-1.5 block text-sm font-semibold"
-          >
-            Email
-          </label>
-          <input
-            id="contact-email"
-            name="email"
-            value={values.email}
-            onChange={(e) => updateField("email", e.target.value)}
-            type="email"
-            className="motion-field border-line text-ink w-full cursor-pointer rounded-xl border px-4 py-3 text-base sm:text-sm"
-            placeholder="nome@email.com"
-            autoComplete="email"
-            maxLength={254}
-            aria-invalid={fieldErrors.email ? "true" : undefined}
-            aria-describedby={
-              fieldErrors.email ? "contact-email-error" : undefined
-            }
-          />
-          <FieldError id="contact-email-error" message={fieldErrors.email} />
-        </div>
-
-        <div>
-          <label
-            htmlFor="contact-message"
-            className="text-ink mb-1.5 block text-sm font-semibold"
-          >
-            Messaggio
-          </label>
-          <textarea
-            id="contact-message"
-            name="message"
-            value={values.message}
-            onChange={(e) => updateField("message", e.target.value)}
-            rows={6}
-            maxLength={2000}
-            className="motion-field border-line text-ink w-full cursor-pointer resize-none rounded-xl border px-4 py-3 text-base sm:text-sm"
-            placeholder="Di cosa vuoi parlare?"
-            aria-invalid={fieldErrors.message ? "true" : undefined}
-            aria-describedby={
-              fieldErrors.message ? "contact-message-error" : undefined
-            }
-          />
-          <FieldError
-            id="contact-message-error"
-            message={fieldErrors.message}
-          />
-        </div>
-
-        <HCaptcha
-          ref={captchaRef}
-          sitekey={HCAPTCHA_SITEKEY}
-          reCaptchaCompat={false}
-          onVerify={(token) => {
-            setCaptchaToken(token);
-            if (formError) {
-              setFormError("");
-            }
-            if (status === "error") {
-              setStatus("idle");
-            }
-          }}
-          onExpire={resetCaptcha}
-          onError={resetCaptcha}
-        />
-
-        <button
-          type="submit"
-          disabled={!canSubmit}
-          className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60"
-          aria-live="polite"
+        <Reveal
+          as="form"
+          className="surface-panel relative mt-10 space-y-5 p-6 md:p-8"
+          delay={120}
+          onSubmit={onSubmit}
+          noValidate
         >
-          {status === "sending" ? "Invio in corso..." : "Invia messaggio"}
-        </button>
+          <div>
+            <label
+              htmlFor="contact-name"
+              className="text-ink mb-1.5 block text-sm font-semibold"
+            >
+              Nome
+            </label>
+            <input
+              id="contact-name"
+              name="name"
+              value={values.name}
+              onChange={(e) => updateField("name", e.target.value)}
+              type="text"
+              className="motion-field border-line text-ink w-full cursor-pointer rounded-xl border px-4 py-3 text-base sm:text-sm"
+              placeholder="Il tuo nome"
+              autoComplete="name"
+              maxLength={100}
+              aria-invalid={fieldErrors.name ? "true" : undefined}
+              aria-describedby={
+                fieldErrors.name ? "contact-name-error" : undefined
+              }
+            />
+            <FieldError id="contact-name-error" message={fieldErrors.name} />
+          </div>
 
-        {status === "success" && (
-          <p
-            role="status"
-            className="border-success-border bg-success-surface text-success-text rounded-xl border p-4 text-sm"
+          <div>
+            <label
+              htmlFor="contact-email"
+              className="text-ink mb-1.5 block text-sm font-semibold"
+            >
+              Email
+            </label>
+            <input
+              id="contact-email"
+              name="email"
+              value={values.email}
+              onChange={(e) => updateField("email", e.target.value)}
+              type="email"
+              className="motion-field border-line text-ink w-full cursor-pointer rounded-xl border px-4 py-3 text-base sm:text-sm"
+              placeholder="nome@email.com"
+              autoComplete="email"
+              maxLength={254}
+              aria-invalid={fieldErrors.email ? "true" : undefined}
+              aria-describedby={
+                fieldErrors.email ? "contact-email-error" : undefined
+              }
+            />
+            <FieldError id="contact-email-error" message={fieldErrors.email} />
+          </div>
+
+          <div>
+            <label
+              htmlFor="contact-message"
+              className="text-ink mb-1.5 block text-sm font-semibold"
+            >
+              Messaggio
+            </label>
+            <textarea
+              id="contact-message"
+              name="message"
+              value={values.message}
+              onChange={(e) => updateField("message", e.target.value)}
+              rows={6}
+              maxLength={2000}
+              className="motion-field border-line text-ink w-full cursor-pointer resize-none rounded-xl border px-4 py-3 text-base sm:text-sm"
+              placeholder="Di cosa vuoi parlare?"
+              aria-invalid={fieldErrors.message ? "true" : undefined}
+              aria-describedby={
+                fieldErrors.message ? "contact-message-error" : undefined
+              }
+            />
+            <FieldError
+              id="contact-message-error"
+              message={fieldErrors.message}
+            />
+          </div>
+
+          <HCaptcha
+            ref={captchaRef}
+            sitekey={HCAPTCHA_SITEKEY}
+            reCaptchaCompat={false}
+            onVerify={(token) => {
+              setCaptchaToken(token);
+              if (formError) {
+                setFormError("");
+              }
+              if (status === "error") {
+                setStatus("idle");
+              }
+            }}
+            onExpire={resetCaptcha}
+            onError={resetCaptcha}
+          />
+
+          <button
+            type="submit"
+            disabled={!canSubmit}
+            className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60"
+            aria-live="polite"
           >
-            Messaggio inviato. Ti risponderò appena possibile.
-          </p>
-        )}
+            {status === "sending" ? "Invio in corso..." : "Invia messaggio"}
+          </button>
 
-        {status === "error" && formError && (
-          <p
-            role="alert"
-            className="border-error-border bg-error-surface text-error-text rounded-xl border p-4 text-sm"
-          >
-            {formError}
-          </p>
-        )}
-      </Reveal>
+          {status === "success" && (
+            <p
+              role="status"
+              className="border-success-border bg-success-surface text-success-text rounded-xl border p-4 text-sm"
+            >
+              Messaggio inviato. Ti risponderò appena possibile.
+            </p>
+          )}
 
-      <Reveal delay={200}>
-        <Button variant="ghost" href="/" className="mt-8">
-          Torna alla home
-        </Button>
-      </Reveal>
+          {status === "error" && formError && (
+            <p
+              role="alert"
+              className="border-error-border bg-error-surface text-error-text rounded-xl border p-4 text-sm"
+            >
+              {formError}
+            </p>
+          )}
+        </Reveal>
+
+        <Reveal delay={200}>
+          <Button variant="ghost" href="/" className="mt-8">
+            Torna alla home
+          </Button>
+        </Reveal>
+      </div>
     </div>
   );
 }

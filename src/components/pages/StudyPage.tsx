@@ -1,4 +1,5 @@
 import Reveal from "../ui/Reveal";
+import SectionShapes from "../ui/SectionShapes";
 import StudyEntry from "../ui/StudyEntry";
 import ExperienceEntry from "../ui/ExperienceEntry";
 import { studyPath } from "../../lib/study";
@@ -9,10 +10,11 @@ function StudyPage() {
     <>
       <h1 className="sr-only">Percorso: esperienza e formazione</h1>
       <section
-        className="section-pad bg-surface/50 scroll-mt-header"
+        className="section-pad bg-surface/50 scroll-mt-header relative overflow-hidden"
         aria-labelledby="experience-heading"
       >
-        <div className="mx-auto max-w-6xl">
+        <SectionShapes variant={1} />
+        <div className="relative mx-auto max-w-6xl">
           <Reveal>
             <p className="section-label">Percorso</p>
             <h2 id="experience-heading" className="section-heading mt-3">
@@ -33,10 +35,11 @@ function StudyPage() {
       </section>
       <section
         id="percorso"
-        className="section-pad bg-surface/90"
+        className="section-pad bg-surface/90 relative overflow-hidden"
         aria-labelledby="study-heading"
       >
-        <div className="mx-auto max-w-6xl">
+        <SectionShapes variant={2} />
+        <div className="relative mx-auto max-w-6xl">
           <Reveal>
             <p className="section-label">Percorso</p>
             <h2 id="study-heading" className="section-heading mt-3">

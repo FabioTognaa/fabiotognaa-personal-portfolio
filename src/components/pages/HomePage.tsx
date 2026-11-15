@@ -1,4 +1,5 @@
 import Button from "../ui/Button";
+import SectionShapes from "../ui/SectionShapes";
 import { CV_PATH, CV_FILENAME } from "../../lib/static-assets";
 import { profileImage } from "../../lib/static-assets";
 
@@ -10,39 +11,42 @@ function HomePage() {
       aria-labelledby="hero-title"
     >
       <div className="mx-auto grid max-w-6xl lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="bg-hero text-on-hero flex flex-col justify-center px-5 py-14 sm:py-16 md:px-10 md:py-24 lg:min-h-[min(88vh,820px)] lg:px-16 lg:py-28">
-          <p className="reveal section-label !text-accent-glow">
-            Personal portfolio
-          </p>
-          <h1
-            id="hero-title"
-            className="reveal reveal-delay-1 font-display !text-on-hero mt-4 text-[clamp(2.5rem,6vw,4.25rem)] leading-[1.02] font-extrabold tracking-tight"
-          >
-            Fabio
-            <br />
-            Tognarelli
-          </h1>
-          <p className="reveal reveal-delay-2 text-on-hero/80 mt-6 max-w-md text-lg leading-relaxed font-light">
-            Studente di informatica a Pisa. Appassionato di sviluppo web,
-            pipeline efficienti AI-oriented e sviluppo sostenibile delle nuove
-            tecnologie informatiche.
-          </p>
-          <div className="reveal reveal-delay-3 mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap">
-            <Button
-              variant="primary-dark"
-              href={CV_PATH}
-              download={CV_FILENAME}
-              className="w-full sm:w-auto"
+        <div className="bg-hero text-on-hero relative flex flex-col justify-center overflow-hidden px-5 py-14 sm:py-16 md:px-10 md:py-24 lg:min-h-[min(88vh,820px)] lg:px-16 lg:py-28">
+          <SectionShapes variant={2} />
+          <div className="relative">
+            <p className="reveal section-label !text-accent-glow">
+              Personal portfolio
+            </p>
+            <h1
+              id="hero-title"
+              className="reveal reveal-delay-1 font-display !text-on-hero mt-4 text-[clamp(2.5rem,6vw,4.25rem)] leading-[1.02] font-extrabold tracking-tight"
             >
-              Scarica CV
-            </Button>
-            <Button
-              variant="ghost-dark"
-              href="/projects"
-              className="w-full sm:w-auto"
-            >
-              Vedi progetti
-            </Button>
+              Fabio
+              <br />
+              Tognarelli
+            </h1>
+            <p className="reveal reveal-delay-2 text-on-hero/80 mt-6 max-w-md text-lg leading-relaxed font-light">
+              Studente di informatica a Pisa. Appassionato di sviluppo web,
+              pipeline efficienti AI-oriented e sviluppo sostenibile delle nuove
+              tecnologie informatiche.
+            </p>
+            <div className="reveal reveal-delay-3 mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap">
+              <Button
+                variant="primary-dark"
+                href={CV_PATH}
+                download={CV_FILENAME}
+                className="w-full sm:w-auto"
+              >
+                Scarica CV
+              </Button>
+              <Button
+                variant="ghost-dark"
+                href="/projects"
+                className="w-full sm:w-auto"
+              >
+                Vedi progetti
+              </Button>
+            </div>
           </div>
         </div>
 

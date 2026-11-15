@@ -77,9 +77,16 @@ function SiteFooter() {
           </div>
         </div>
 
-        <p className="border-on-hero/15 text-on-hero/55 mt-12 border-t pt-8 text-center text-xs md:text-left">
-          &copy; 2026 Fabio Tognarelli
-        </p>
+        <div className="border-on-hero/15 mt-12 border-t pt-8 text-xs">
+          <p className="text-on-hero/55 text-center md:text-left">
+            &copy; 2026 Fabio Tognarelli
+          </p>
+          <p className="text-on-hero/40 mt-2 text-center text-[0.6875rem] leading-relaxed md:text-left">
+            Loghi e marchi citati appartengono ai rispettivi titolari e sono
+            usati a soli fini identificativi: nessuna affiliazione,
+            sponsorizzazione o approvazione è implicata.
+          </p>
+        </div>
       </div>
     </footer>
   );

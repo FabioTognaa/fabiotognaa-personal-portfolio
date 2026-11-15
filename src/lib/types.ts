@@ -16,9 +16,8 @@ export type ExperienceEntryData = {
   logo: ImageAsset;
   logoAlt: string;
   company: string;
-  ruolo: string;
   place: string;
-  period: string;
+  roles: readonly { ruolo: string; period: string }[];
   summary: string;
   highlights?: readonly string[];
 };

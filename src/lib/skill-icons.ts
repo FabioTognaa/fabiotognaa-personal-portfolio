@@ -12,11 +12,11 @@ import c from "../assets/icons/skills/c-icon.svg?url";
 import cpp from "../assets/icons/skills/cpp-icon.svg?url";
 import php from "../assets/icons/skills/php-icon.svg?url";
 import fastapi from "../assets/icons/skills/fastapi-icon.svg?url";
-import postgresql from "../assets/icons/skills/postgresql-icon.webp?url";
+import postgresql from "../assets/icons/skills/postgresql-icon.svg?url";
 import docker from "../assets/icons/skills/docker-icon.svg?url";
 import githubactions from "../assets/icons/skills/githubactions-icon.svg?url";
 import claudecode from "../assets/icons/skills/claudecode-icon.svg?url";
-import cursor from "../assets/icons/skills/cursor-icon.webp?url";
+import cursor from "../assets/icons/skills/cursor-icon.svg?url";
 import n8n from "../assets/icons/skills/n8n-icon.svg?url";
 import wordpress from "../assets/icons/skills/wordpress-icon.svg?url";
 

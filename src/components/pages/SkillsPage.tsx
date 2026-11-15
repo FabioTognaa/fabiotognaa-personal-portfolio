@@ -1,4 +1,5 @@
 import SkillGroupCard from "../ui/SkillGroupCard";
+import SectionShapes from "../ui/SectionShapes";
 import Reveal from "../ui/Reveal";
 import { skillGroups } from "../../lib/skills";
 import { certificates } from "../../lib/certificates";
@@ -19,10 +20,11 @@ function SkillsPage() {
     <>
       <section
         id="competenze"
-        className="section-pad scroll-mt-header mx-auto max-w-7xl xl:max-w-[88rem]"
+        className="section-pad scroll-mt-header relative mx-auto max-w-7xl overflow-hidden xl:max-w-[88rem]"
         aria-labelledby="skills-heading"
       >
-        <Reveal className="skills-intro">
+        <SectionShapes variant={1} />
+        <Reveal className="skills-intro relative">
           <div className="skills-intro__head">
             <p className="section-label">Competenze</p>
             <h1
@@ -34,7 +36,7 @@ function SkillsPage() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-6 md:mt-24">
+        <div className="relative grid grid-cols-2 gap-6 md:mt-24">
           {groups.map((group, index) => (
             <Reveal
               key={group.id}
@@ -48,10 +50,11 @@ function SkillsPage() {
       </section>
       <section
         id="certificati"
-        className="section-pad mx-auto max-w-7xl pt-0 xl:max-w-[88rem]"
+        className="section-pad relative mx-auto max-w-7xl overflow-hidden pt-0 xl:max-w-[88rem]"
         aria-labelledby="certifications-heading"
       >
-        <Reveal className="skills-intro">
+        <SectionShapes variant={2} />
+        <Reveal className="skills-intro relative">
           <div className="skills-intro__head">
             <h2
               id="certifications-heading"
@@ -61,7 +64,7 @@ function SkillsPage() {
             </h2>
           </div>
         </Reveal>
-        <div className="flex flex-row gap-6 md:mt-24">
+        <div className="relative flex flex-row gap-6 md:mt-24">
           {certificates.map((certificate) => (
             <Reveal key={certificate.id} className={"skills-layout__item"}>
               <CertificateCard certificate={certificate} />
