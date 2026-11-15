@@ -22,7 +22,7 @@ const {
   preloadProfileImage = false,
 } = Astro.props;
 
-const origin = Astro.site ?? new URL("https://fabiotognaa-personal-portfolio.vercel.app");
+const origin = Astro.site ?? new URL("https://fabiotognarelli.vercel.app");
 const canonical = new URL(Astro.url.pathname, origin).href;
 const profileImage = new URL("/images/profile/tognarelli-1200.webp", origin).href;
 

@@ -1,6 +1,6 @@
 # Fabio Tognarelli - Portfolio Personale
 
-[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://fabiotognaa-personal-portfolio.vercel.app)
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://fabiotognarelli.vercel.app)
 
 ## Introduzione
 
@@ -131,7 +131,7 @@ Limiti attuali: il progetto non ha un test framework configurato. Quel controllo
 
 ## Contatti
 
-Website: https://fabiotognaa-personal-portfolio.vercel.app
+Website: https://fabiotognarelli.vercel.app
 
 LinkedIn: https://www.linkedin.com/in/fabio-tognarelli/
 

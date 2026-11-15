@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fabiotognaa-personal-portfolio.vercel.app/sitemap-index.xml
+Sitemap: https://fabiotognarelli.vercel.app/sitemap-index.xml
