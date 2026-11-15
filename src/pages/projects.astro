@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectsCarousel from "../components/ui/ProjectsCarousel";
+import { projects } from "../lib/projects";
+import { CV_PATH, CV_FILENAME } from "../lib/static-assets";
+---
+
+<BaseLayout
+  title="Progetti — Fabio Tognarelli"
+  description="Progetti di sviluppo web e software realizzati da Fabio Tognarelli, studente di informatica a Pisa."
+>
+  <section
+    id="progetti"
+    class="section-pad scroll-mt-header mx-auto max-w-7xl xl:max-w-[88rem]"
+    aria-labelledby="projects-heading"
+  >
+    <div class="projects-intro" data-reveal>
+      <div class="projects-intro__head">
+        <p class="section-label">Progetti</p>
+        <h1 id="projects-heading" class="section-heading mt-3 max-w-[16ch]">
+          Proof of work
+        </h1>
+      </div>
+    </div>
+
+    {
+      projects.length === 0 ? (
+        <div class="reveal-scroll" data-reveal style="--reveal-delay: 80ms">
+          <div class="projects-empty surface-panel">
+            <p class="text-ink-muted text-lg">
+              Nessun progetto pubblicato al momento.
+            </p>
+            <div class="mt-6 flex flex-wrap justify-center gap-3">
+              <a href={CV_PATH} download={CV_FILENAME} class="btn-primary">
+                Scarica CV
+              </a>
+              <a href="/contact" class="btn-ghost">
+                Contattami
+              </a>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="projects-carousel-wrap reveal-scroll" data-reveal style="--reveal-delay: 80ms">
+          <ProjectsCarousel client:visible projects={projects} />
+        </div>
+      )
+    }
+
+    <footer class="projects-footnote reveal-scroll" data-reveal style="--reveal-delay: 200ms">
+      <p class="text-ink-muted text-sm leading-relaxed md:text-base">
+        Altri progetti in arrivo.{" "}
+        <a
+          href="/contact"
+          class="motion-link text-accent hover:text-accent-deep font-semibold"
+        >
+          Scrivimi
+        </a>{" "}
+        se vuoi collaborare.
+      </p>
+    </footer>
+  </section>
+</BaseLayout>
